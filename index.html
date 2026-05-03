@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixing a Broken SaaS Funnel — WebExpo 2026</title>
+  <meta name="description" content="Vladana Bačová · WebExpo 2026 · 27 May, Kino Lucerna">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Bree+Serif&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- SVG goo filter for liquid drips on title slide -->
+  <svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+        <feColorMatrix in="blur" mode="matrix"
+                       values="1 0 0 0 0
+                               0 1 0 0 0
+                               0 0 1 0 0
+                               0 0 0 24 -10" result="goo"/>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Progress bar with section dots -->
+  <header class="progress" aria-label="Talk progress">
+    <div class="progress__rail">
+      <div class="progress__line"></div>
+      <div class="progress__fill"></div>
+      <div class="progress__sections">
+        <button class="section" style="--at: 0%"     data-jump="1"  data-section="1" data-section-name="opening"            aria-label="Section 1 — opening"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 8.1%"   data-jump="5"  data-section="2" data-section-name="framework"          aria-label="Section 2 — framework"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 18.9%"  data-jump="8"  data-section="3" data-section-name="case 1 · acquisition" aria-label="Section 3 — case 1"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 40.5%"  data-jump="13" data-section="4" data-section-name="case 2 · conversion"  aria-label="Section 4 — case 2"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 62.2%"  data-jump="18" data-section="5" data-section-name="case 3 · retention"   aria-label="Section 5 — case 3"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 86.5%"  data-jump="23" data-section="6" data-section-name="takeaway"            aria-label="Section 6 — takeaway"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 94.6%"  data-jump="25" data-section="7" data-section-name="cta"                 aria-label="Section 7 — cta"><span class="section__dot"></span></button>
+      </div>
+    </div>
+    <div class="progress__label">
+      <div class="progress__label-inner">
+        <span class="progress__label-name"></span>
+        <span class="progress__label-meta"></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="stage">
+    <div class="deck">
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 1 · TITLE — every saas funnel leaks.
+           Section 1 · Opening · Minute 0
+           ────────────────────────────────────────────────────── -->
+      <section class="slide is-active" data-slide="1" data-section="1" data-section-name="opening" data-minute="0" aria-label="Title slide">
+        <div class="title-slide">
+
+          <div class="title-slide__speaker">
+            <div class="title-slide__name">vladana bačová</div>
+            <div class="title-slide__role">
+              <span class="line">fractional cmo</span>
+              <span class="line line--firm">pretty much nomads</span>
+            </div>
+            <div class="title-slide__event">
+              <div class="title-slide__event-title">webexpo 2026</div>
+              <div class="title-slide__event-talk">fixing a broken saas funnel</div>
+              <div class="title-slide__event-meta">
+                <span class="line">27 may<span class="sep">·</span>16:00</span>
+                <span class="line">kino lucerna</span>
+              </div>
+            </div>
+          </div>
+
+          <img class="title-slide__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+
+          <h1 class="title-slide__hook">
+            <span class="line line--1">every saas funnel</span>
+            <span class="line line--2">
+              <span class="title-slide__leaks">leaks<span class="title-slide__liquid" aria-hidden="true">
+                <span class="title-slide__stream" style="--x:  6%; --h: 4cqw"></span>
+                <span class="title-slide__stream" style="--x: 24%; --h: 5.5cqw"></span>
+                <span class="title-slide__stream" style="--x: 41%; --h: 3.5cqw"></span>
+                <span class="title-slide__stream" style="--x: 58%; --h: 6cqw"></span>
+                <span class="title-slide__stream" style="--x: 78%; --h: 4.5cqw"></span>
+                <span class="title-slide__stream" style="--x: 92%; --h: 3.8cqw"></span>
+
+                <span class="title-slide__drop" style="--x:  6%; --from: 4cqw;   --dur: 2.6s; --d: 0.0s"></span>
+                <span class="title-slide__drop" style="--x:  6%; --from: 4cqw;   --dur: 2.6s; --d: 1.3s"></span>
+                <span class="title-slide__drop" style="--x: 24%; --from: 5.5cqw; --dur: 3.2s; --d: 0.5s"></span>
+                <span class="title-slide__drop" style="--x: 24%; --from: 5.5cqw; --dur: 3.2s; --d: 2.1s"></span>
+                <span class="title-slide__drop" style="--x: 41%; --from: 3.5cqw; --dur: 2.4s; --d: 0.9s"></span>
+                <span class="title-slide__drop" style="--x: 58%; --from: 6cqw;   --dur: 3.6s; --d: 0.2s"></span>
+                <span class="title-slide__drop" style="--x: 58%; --from: 6cqw;   --dur: 3.6s; --d: 2.0s"></span>
+                <span class="title-slide__drop" style="--x: 78%; --from: 4.5cqw; --dur: 2.8s; --d: 1.5s"></span>
+                <span class="title-slide__drop" style="--x: 92%; --from: 3.8cqw; --dur: 3.0s; --d: 0.7s"></span>
+              </span></span>.
+            </span>
+          </h1>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 2 · ABOUT — credibility
+           Section 1 · Opening · Minute 0.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="2" data-section="1" data-section-name="opening" data-minute="0.5" aria-label="About — credibility">
+        <div class="about-slide">
+
+          <div class="section-label">why listen to me</div>
+
+          <div class="about-slide__body">
+
+            <div class="about-slide__photo">
+              <img class="about-slide__photo-img" src="assets/Vladana Bačová foto/Bacova_Vladana-3.jpg" alt="Vladana Bačová">
+              <svg class="about-slide__photo-ring" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="50"/>
+              </svg>
+              <span class="about-slide__deco-dot about-slide__deco-dot--1"></span>
+              <span class="about-slide__deco-dot about-slide__deco-dot--2"></span>
+              <span class="about-slide__deco-dot about-slide__deco-dot--3"></span>
+            </div>
+
+            <div class="about-slide__content">
+              <h1 class="about-slide__hello">hi, i'm <span class="accent">vladana</span>.</h1>
+
+              <ol class="about-slide__list">
+                <li>
+                  <span class="num">01</span>
+                  <span class="text">
+                    <span class="line">fractional cmo for b2b saas</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="num">02</span>
+                  <span class="text">
+                    <span class="line">the first certified ux writer in the czech republic</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="num">03</span>
+                  <span class="text">
+                    <span class="line">founder of contesaur — my own saas</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="num">04</span>
+                  <span class="text">
+                    <span class="line">12+ years in b2b marketing</span>
+                  </span>
+                </li>
+              </ol>
+            </div>
+
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">2 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 3 · AUDIENCE FILTER — disqualifier
+           Section 1 · Opening · Minute 1.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="3" data-section="1" data-section-name="opening" data-minute="1.5" aria-label="Audience filter">
+        <div class="compare-slide">
+
+          <div class="compare-slide__header">
+            <div class="compare-slide__title">is this <span class="accent">for you?</span></div>
+            <div class="compare-slide__pill">section 1 · disqualifier</div>
+          </div>
+
+          <div class="compare-slide__body">
+            <div class="compare-slide__col compare-slide__col--left">
+              <div class="compare-slide__heading">
+                not for you<span class="badge">skip</span>
+              </div>
+              <ul class="compare-slide__list">
+                <li><span class="marker">✕</span><span>you run paid ads and obsess over cpc</span></li>
+                <li><span class="marker">✕</span><span>you're pre-revenue with no funnel data</span></li>
+                <li><span class="marker">✕</span><span>you're b2c, d2c, or e-commerce</span></li>
+              </ul>
+            </div>
+            <div class="compare-slide__divider"></div>
+            <div class="compare-slide__col compare-slide__col--right">
+              <div class="compare-slide__heading">
+                for you<span class="badge">stay</span>
+              </div>
+              <ul class="compare-slide__list">
+                <li><span class="marker">✓</span><span>you sell b2b saas to other businesses</span></li>
+                <li><span class="marker">✓</span><span>leads aren't becoming paying users</span></li>
+                <li><span class="marker">✓</span><span>you have data and need to read it right</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">3 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 4 · TAKEAWAYS PROMISE
+           Section 1 · Opening · Minute 2.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="4" data-section="1" data-section-name="opening" data-minute="2.5" aria-label="3 takeaways promise">
+        <div class="takeaways-slide">
+
+          <div class="takeaways-slide__intro">
+            <div class="section-label">what you'll take away</div>
+            <h1 class="takeaways-slide__headline">
+              <span class="line line--1">by the end</span>
+              <span class="line line--2">of this talk,</span>
+              <span class="line line--3">you'll <span class="accent">have</span>:</span>
+            </h1>
+          </div>
+
+          <ol class="takeaways-slide__list">
+            <li>
+              <span class="num">01</span>
+              <div class="body">
+                <span class="title">a method</span>
+                <span class="desc">
+                  <span class="line">to read your funnel in five minutes.</span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <span class="num">02</span>
+              <div class="body">
+                <span class="title">pattern recognition</span>
+                <span class="desc">
+                  <span class="line">the three types of leaks every saas funnel has.</span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <span class="num">03</span>
+              <div class="body">
+                <span class="title">your first move</span>
+                <span class="desc">
+                  <span class="line">the exact thing to test tomorrow morning.</span>
+                </span>
+              </div>
+            </li>
+          </ol>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">4 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 5 · DIVIDER — the tool (no funnel)
+           Section 2 · Framework · Minute 3
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="5" data-section="2" data-section-name="framework" data-minute="3" aria-label="Section divider — the tool">
+        <div class="divider-slide">
+
+          <div class="divider-slide__content">
+            <div class="section-label">section 2</div>
+            <h1 class="divider-slide__title">the tool<span class="period">.</span></h1>
+            <div class="divider-slide__rule"></div>
+            <div class="divider-slide__sub">marketing control sheet</div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">5 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 6 · QR — MCS template
+           Section 2 · Framework · Minute 3.25
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="6" data-section="2" data-section-name="framework" data-minute="3.5" aria-label="QR — MCS template">
+        <div class="qr-slide">
+
+          <div class="qr-slide__content">
+            <div class="section-label">section 2 · the tool</div>
+            <h1 class="qr-slide__headline">
+              <span class="line line--1">the marketing</span>
+              <span class="line line--2">control</span>
+              <span class="line line--3"><span class="accent">sheet</span>.</span>
+            </h1>
+            <p class="qr-slide__sub">
+              <span class="line">free template.</span>
+              <span class="line">yours after the talk.</span>
+            </p>
+            <p class="qr-slide__instruction">
+              <span class="line">scan it now.</span>
+              <span class="line">don't fill it in yet — <span class="accent">distracting</span>.</span>
+            </p>
+          </div>
+
+          <div class="qr-slide__qr">
+            <div class="qr-slide__image">
+              <img alt="QR — prettymuchnomads.com/webexpo"
+                   src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&color=17252A&bgcolor=FFFFFF&qzone=2&data=https%3A%2F%2Fprettymuchnomads.com%2Fwebexpo">
+            </div>
+            <div class="qr-slide__url">prettymuchnomads.com/webexpo</div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">6 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 7 · MCS framework — empty table with definitions
+           Section 2 · Framework · Minute 4.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="7" data-section="2" data-section-name="framework" data-minute="4" aria-label="MCS framework — metric definitions">
+        <div class="mcs-slide">
+
+          <div class="mcs-slide__header">
+            <div class="mcs-slide__title">marketing control <span class="accent">sheet</span></div>
+            <div class="mcs-slide__case">section 2 · framework</div>
+          </div>
+
+          <div class="mcs-slide__table-wrap">
+            <table class="mcs-table mcs-table--definitions" aria-label="Marketing Control Sheet — metric definitions">
+              <thead>
+                <tr>
+                  <th>metric</th>
+                  <th>what it means</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="metric">awareness</td>
+                  <td class="definition">who sees your business</td>
+                </tr>
+                <tr>
+                  <td class="metric">leads</td>
+                  <td class="definition">first conversion action — signup, form, download</td>
+                </tr>
+                <tr>
+                  <td class="metric">qualified</td>
+                  <td class="definition">moved into a sales conversation — demo, trial, meeting</td>
+                </tr>
+                <tr>
+                  <td class="metric">paid</td>
+                  <td class="definition">they paid you</td>
+                </tr>
+                <tr>
+                  <td class="metric">retained</td>
+                  <td class="definition">still paying you a year later</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">7 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 8 · GAP INFOGRAPHIC — Reality vs. Plan
+           Section 2 · Framework · Minute 6.25
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="8" data-section="2" data-section-name="framework" data-minute="5.5" aria-label="Reality vs. plan — the gap is the leak">
+        <div class="gap-slide">
+
+          <div class="section-label">section 2 · core insight</div>
+
+          <h1 class="gap-slide__headline">
+            the <span class="accent">leak</span> is the gap between them.
+          </h1>
+
+          <div class="gap-viz">
+            <div class="gap-col gap-col--reality">
+              <span class="gap-col__label">reality</span>
+              <span class="gap-col__sub">what actually happens</span>
+              <div class="gap-col__bar"></div>
+              <span class="gap-col__value">1.3 %</span>
+            </div>
+            <div class="gap-col gap-col--plan">
+              <span class="gap-col__label">plan</span>
+              <span class="gap-col__sub">what should happen</span>
+              <div class="gap-col__bar"></div>
+              <span class="gap-col__value">3 – 4 %</span>
+            </div>
+
+            <div class="gap-arrow" aria-hidden="true">
+              <span class="gap-arrow__symbol">↕</span>
+              <span class="gap-arrow__label">the gap</span>
+            </div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">8 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 9 · DIVIDER — case 1 · acquisition (top of funnel)
+           Section 3 · Case 1 · Minute 7
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="9" data-section="3" data-section-name="case 1 · acquisition" data-minute="7" aria-label="Section divider — case 1 acquisition">
+        <div class="divider-slide has-visual">
+
+          <div class="divider-slide__content">
+            <div class="section-label">section 3 · case 01</div>
+            <h1 class="divider-slide__title">acquisition<span class="period">.</span></h1>
+            <div class="divider-slide__rule"></div>
+            <div class="divider-slide__sub">top of funnel</div>
+          </div>
+
+          <div class="divider-slide__visual">
+            <svg class="funnel-svg" viewBox="0 0 200 260" preserveAspectRatio="xMidYMid meet">
+              <path class="band is-active" d="M 0 0 L 200 0 L 175 80 L 25 80 Z"/>
+              <path class="band"           d="M 25 80 L 175 80 L 140 170 L 60 170 Z"/>
+              <path class="band"           d="M 60 170 L 140 170 L 125 260 L 75 260 Z"/>
+              <text class="band-label is-active" x="100" y="46"  text-anchor="middle">top</text>
+              <text class="band-label"            x="100" y="130" text-anchor="middle">middle</text>
+              <text class="band-label"            x="100" y="218" text-anchor="middle">bottom</text>
+            </svg>
+
+            <div class="divider-slide__drips" aria-hidden="true">
+              <span class="drip" style="--x: 30%; --from: 28%; --dur: 2.6s; --d: 0.0s"></span>
+              <span class="drip" style="--x: 50%; --from: 28%; --dur: 3.2s; --d: 0.7s"></span>
+              <span class="drip" style="--x: 70%; --from: 28%; --dur: 2.4s; --d: 1.4s"></span>
+              <span class="drip" style="--x: 40%; --from: 28%; --dur: 2.8s; --d: 2.0s"></span>
+              <span class="drip" style="--x: 60%; --from: 28%; --dur: 3.0s; --d: 0.4s"></span>
+            </div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">9 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 10 · PROFILE — case 1 client
+           Section 3 · Case 1 · Minute 7
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="10" data-section="3" data-section-name="case 1 · acquisition" data-minute="7" aria-label="Profile case 1">
+        <div class="profile-slide">
+
+          <div class="section-label">section 3 · case 01</div>
+
+          <div class="profile-slide__title-block">
+            <h1 class="profile-slide__title">
+              the <span class="accent">first</span> funnel.
+            </h1>
+            <div class="profile-slide__sub">
+              anonymized profile<span class="accent"> · </span>real numbers.
+            </div>
+          </div>
+
+          <dl class="profile-slide__facts">
+            <div class="profile-fact">
+              <dt class="profile-fact__label">industry</dt>
+              <dd class="profile-fact__value">
+                <span class="line">b2b saas — data protection software</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">use cases</dt>
+              <dd class="profile-fact__value">
+                <span class="line">compliance, data breach discovery, audits</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">market</dt>
+              <dd class="profile-fact__value">
+                <span class="line">north america and canada</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">team</dt>
+              <dd class="profile-fact__value">
+                <span class="line">small, central europe-based</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">before</dt>
+              <dd class="profile-fact__value">
+                <span class="line">no marketing function</span>
+                <span class="line">founder running product and sales</span>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">10 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 11 · MCS REALITY — case 1
+           Section 3 · Case 1 · Minute 8
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="11" data-section="3" data-section-name="case 1 · acquisition" data-minute="8" aria-label="MCS Reality case 1">
+        <div class="mcs-slide">
+
+          <div class="mcs-slide__header">
+            <div class="mcs-slide__title">marketing control <span class="accent">sheet</span></div>
+            <div class="mcs-slide__case">case 1 · acquisition</div>
+          </div>
+
+          <div class="mcs-slide__table-wrap">
+            <table class="mcs-table" aria-label="Marketing Control Sheet — Case 1 Reality">
+              <thead>
+                <tr>
+                  <th>metric</th>
+                  <th>reality</th>
+                  <th>benchmark</th>
+                  <th>status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="metric">awareness</td>
+                  <td class="reality">13,016</td>
+                  <td class="benchmark">—</td>
+                  <td class="status">—</td>
+                </tr>
+                <tr class="row--leak">
+                  <td class="metric">leads</td>
+                  <td class="reality">112 <span class="pct">1.30 %</span></td>
+                  <td class="benchmark">1.5 – 4 %</td>
+                  <td class="status"><span class="fail">✗</span></td>
+                </tr>
+                <tr>
+                  <td class="metric">qualified</td>
+                  <td class="reality">110 <span class="pct">98 %</span></td>
+                  <td class="benchmark">10 – 30 %</td>
+                  <td class="status"><span class="ok">✓</span></td>
+                </tr>
+                <tr>
+                  <td class="metric">paid</td>
+                  <td class="reality">76 <span class="pct">69 %</span></td>
+                  <td class="benchmark">15 – 30 %</td>
+                  <td class="status"><span class="ok">✓</span></td>
+                </tr>
+                <tr>
+                  <td class="metric">retained</td>
+                  <td class="reality">26 <span class="pct">34 %</span></td>
+                  <td class="benchmark">30 – 60 %</td>
+                  <td class="status"><span class="warn">⚠</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="mcs-leak-frame"></div>
+            <div class="mcs-leak-label">leak</div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">11 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 12 · LIFT — 1 → 9 (case 1 outcome)
+           Section 3 · Case 1 · Minute 13.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="12" data-section="3" data-section-name="case 1 · acquisition" data-minute="13.5" aria-label="Lift — case 1">
+        <div class="lift-slide">
+
+          <div class="section-label">case 1 · the lift</div>
+
+          <div class="lift-numbers">
+            <div class="lift-number lift-number--before">
+              <span class="lift-number__value">1</span>
+              <span class="lift-number__label">before</span>
+            </div>
+            <div class="lift-arrow">→</div>
+            <div class="lift-number lift-number--after">
+              <span class="lift-number__value">9</span>
+              <span class="lift-number__label">after</span>
+            </div>
+          </div>
+
+          <p class="lift-caption">
+            leads per <span class="accent">month</span>.
+          </p>
+
+          <div class="lift-sub">
+            <span class="line">nine times more leads.</span>
+            <span class="line">less traffic. cleaner traffic.</span>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">12 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 13 · STATEMENT lesson — case 1
+           Section 3 · Case 1 · Minute 14.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="13" data-section="3" data-section-name="case 1 · acquisition" data-minute="14.5" aria-label="Lesson — case 1">
+        <div class="statement-slide">
+          <div></div>
+          <div class="statement-slide__body">
+            <h1 class="statement-slide__headline">
+              <span class="line line--1">send more visitors.</span>
+              <span class="line line--2">or fix the conversion.</span>
+              <span class="line line--3">one <span class="accent">compounds</span>.</span>
+            </h1>
+            <p class="statement-slide__subline">
+              the other just costs more.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">13 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 14 · DIVIDER — case 2 · conversion (middle of funnel)
+           Section 4 · Case 2 · Minute 15
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="14" data-section="4" data-section-name="case 2 · conversion" data-minute="15" aria-label="Section divider — case 2 conversion">
+        <div class="divider-slide has-visual">
+
+          <div class="divider-slide__content">
+            <div class="section-label">section 4 · case 02</div>
+            <h1 class="divider-slide__title">conversion<span class="period">.</span></h1>
+            <div class="divider-slide__rule"></div>
+            <div class="divider-slide__sub">middle of funnel</div>
+          </div>
+
+          <div class="divider-slide__visual">
+            <svg class="funnel-svg" viewBox="0 0 200 260" preserveAspectRatio="xMidYMid meet">
+              <path class="band"           d="M 0 0 L 200 0 L 175 80 L 25 80 Z"/>
+              <path class="band is-active" d="M 25 80 L 175 80 L 140 170 L 60 170 Z"/>
+              <path class="band"           d="M 60 170 L 140 170 L 125 260 L 75 260 Z"/>
+              <text class="band-label"            x="100" y="46"  text-anchor="middle">top</text>
+              <text class="band-label is-active"  x="100" y="130" text-anchor="middle">middle</text>
+              <text class="band-label"            x="100" y="218" text-anchor="middle">bottom</text>
+            </svg>
+
+            <div class="divider-slide__drips" aria-hidden="true">
+              <span class="drip" style="--x: 30%; --from: 65%; --dur: 2.6s; --d: 0.0s"></span>
+              <span class="drip" style="--x: 50%; --from: 65%; --dur: 3.2s; --d: 0.7s"></span>
+              <span class="drip" style="--x: 70%; --from: 65%; --dur: 2.4s; --d: 1.4s"></span>
+              <span class="drip" style="--x: 40%; --from: 65%; --dur: 2.8s; --d: 2.0s"></span>
+              <span class="drip" style="--x: 60%; --from: 65%; --dur: 3.0s; --d: 0.4s"></span>
+            </div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">14 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 15 · PROFILE — case 2 client
+           Section 4 · Case 2 · Minute 15
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="15" data-section="4" data-section-name="case 2 · conversion" data-minute="15" aria-label="Profile case 2">
+        <div class="profile-slide">
+
+          <div class="section-label">section 4 · case 02</div>
+
+          <div class="profile-slide__title-block">
+            <h1 class="profile-slide__title">
+              the <span class="accent">second</span> funnel.
+            </h1>
+            <div class="profile-slide__sub">
+              anonymized profile<span class="accent"> · </span>real numbers.
+            </div>
+          </div>
+
+          <dl class="profile-slide__facts">
+            <div class="profile-fact">
+              <dt class="profile-fact__label">industry</dt>
+              <dd class="profile-fact__value">
+                <span class="line">b2b saas — visual feedback and bug reporting</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">use cases</dt>
+              <dd class="profile-fact__value">
+                <span class="line">dev teams collecting bug reports</span>
+                <span class="line">agencies tracking client feedback</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">target</dt>
+              <dd class="profile-fact__value">
+                <span class="line">small dev teams, agencies, freelancers</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">model</dt>
+              <dd class="profile-fact__value">
+                <span class="line">hybrid — freemium + free trial</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">before</dt>
+              <dd class="profile-fact__value">
+                <span class="line">solo-founder operation</span>
+                <span class="line">no marketing function</span>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">15 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 16 · MCS REALITY — case 2
+           Section 4 · Case 2 · Minute 16
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="16" data-section="4" data-section-name="case 2 · conversion" data-minute="16" aria-label="MCS Reality case 2">
+        <div class="mcs-slide">
+
+          <div class="mcs-slide__header">
+            <div class="mcs-slide__title">marketing control <span class="accent">sheet</span></div>
+            <div class="mcs-slide__case">case 2 · conversion</div>
+          </div>
+
+          <div class="mcs-slide__table-wrap">
+            <table class="mcs-table" aria-label="Marketing Control Sheet — Case 2 Reality">
+              <thead>
+                <tr>
+                  <th>metric</th>
+                  <th>reality</th>
+                  <th>benchmark</th>
+                  <th>status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="metric">awareness</td>
+                  <td class="reality">21,600</td>
+                  <td class="benchmark">—</td>
+                  <td class="status">—</td>
+                </tr>
+                <tr>
+                  <td class="metric">leads</td>
+                  <td class="reality">574 <span class="pct">2.66 %</span></td>
+                  <td class="benchmark">trial 8 %</td>
+                  <td class="status"><span class="warn">⚠</span></td>
+                </tr>
+                <tr>
+                  <td class="metric">qualified</td>
+                  <td class="reality">—</td>
+                  <td class="benchmark">—</td>
+                  <td class="status">not tracked</td>
+                </tr>
+                <tr class="row--leak">
+                  <td class="metric">paid</td>
+                  <td class="reality">47 <span class="pct">8.19 %</span></td>
+                  <td class="benchmark">trial 18 – 25 %</td>
+                  <td class="status"><span class="fail">✗</span></td>
+                </tr>
+                <tr>
+                  <td class="metric">retained</td>
+                  <td class="reality">39 <span class="pct">83 %</span></td>
+                  <td class="benchmark">60 – 80 %</td>
+                  <td class="status"><span class="ok">✓</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="mcs-leak-frame"></div>
+            <div class="mcs-leak-label">leak</div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">16 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 17 · LIFT — what we're fixing now (case 2)
+           Section 4 · Case 2 · Minute 22
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="17" data-section="4" data-section-name="case 2 · conversion" data-minute="22" aria-label="Lift — case 2 in progress">
+        <div class="takeaways-slide">
+
+          <div class="takeaways-slide__intro">
+            <div class="section-label">case 2 · in progress</div>
+            <h1 class="takeaways-slide__headline">
+              <span class="line line--1">we're</span>
+              <span class="line line--2"><span class="accent">fixing</span></span>
+              <span class="line line--3">it now.</span>
+            </h1>
+          </div>
+
+          <ol class="takeaways-slide__list">
+            <li>
+              <span class="num">01</span>
+              <div class="body">
+                <span class="title">messaging</span>
+                <span class="desc">
+                  <span class="line">sharper, audience-specific.</span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <span class="num">02</span>
+              <div class="body">
+                <span class="title">onboarding</span>
+                <span class="desc">
+                  <span class="line">revised, with an activation metric.</span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <span class="num">03</span>
+              <div class="body">
+                <span class="title">segmentation</span>
+                <span class="desc">
+                  <span class="line">deeper a/b testing in flight.</span>
+                </span>
+              </div>
+            </li>
+          </ol>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">17 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 18 · STATEMENT lesson — signups don't pay (case 2)
+           Section 4 · Case 2 · Minute 22.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="18" data-section="4" data-section-name="case 2 · conversion" data-minute="22.5" aria-label="Lesson — case 2">
+        <div class="statement-slide">
+          <div></div>
+          <div class="statement-slide__body">
+            <h1 class="statement-slide__headline">
+              <span class="line line--1">signups don't pay.</span>
+              <span class="line line--2"><span class="accent">people</span> do.</span>
+              <span class="line line--3">build the bridge.</span>
+            </h1>
+            <p class="statement-slide__subline">
+              what happens after signup matters more than the signup itself.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">18 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 19 · DIVIDER — case 3 · retention (bottom of funnel)
+           Section 5 · Case 3 · Minute 23
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="19" data-section="5" data-section-name="case 3 · retention" data-minute="23" aria-label="Section divider — case 3 retention">
+        <div class="divider-slide has-visual">
+
+          <div class="divider-slide__content">
+            <div class="section-label">section 5 · case 03</div>
+            <h1 class="divider-slide__title">retention<span class="period">.</span></h1>
+            <div class="divider-slide__rule"></div>
+            <div class="divider-slide__sub">bottom of funnel</div>
+          </div>
+
+          <div class="divider-slide__visual">
+            <svg class="funnel-svg" viewBox="0 0 200 260" preserveAspectRatio="xMidYMid meet">
+              <path class="band"           d="M 0 0 L 200 0 L 175 80 L 25 80 Z"/>
+              <path class="band"           d="M 25 80 L 175 80 L 140 170 L 60 170 Z"/>
+              <path class="band is-active" d="M 60 170 L 140 170 L 125 260 L 75 260 Z"/>
+              <text class="band-label"            x="100" y="46"  text-anchor="middle">top</text>
+              <text class="band-label"            x="100" y="130" text-anchor="middle">middle</text>
+              <text class="band-label is-active"  x="100" y="218" text-anchor="middle">bottom</text>
+            </svg>
+
+            <div class="divider-slide__drips" aria-hidden="true">
+              <span class="drip" style="--x: 35%; --from: 95%; --dur: 2.6s; --d: 0.0s"></span>
+              <span class="drip" style="--x: 50%; --from: 95%; --dur: 3.2s; --d: 0.7s"></span>
+              <span class="drip" style="--x: 65%; --from: 95%; --dur: 2.4s; --d: 1.4s"></span>
+              <span class="drip" style="--x: 42%; --from: 95%; --dur: 2.8s; --d: 2.0s"></span>
+              <span class="drip" style="--x: 58%; --from: 95%; --dur: 3.0s; --d: 0.4s"></span>
+            </div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">19 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 20 · PROFILE — case 3 client (Contesaur anonymous)
+           Section 5 · Case 3 · Minute 23
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="20" data-section="5" data-section-name="case 3 · retention" data-minute="23" aria-label="Profile case 3">
+        <div class="profile-slide">
+
+          <div class="section-label">section 5 · case 03</div>
+
+          <div class="profile-slide__title-block">
+            <h1 class="profile-slide__title">
+              the <span class="accent">third</span> funnel.
+            </h1>
+            <div class="profile-slide__sub">
+              anonymized profile<span class="accent"> · </span>real numbers.
+            </div>
+          </div>
+
+          <dl class="profile-slide__facts">
+            <div class="profile-fact">
+              <dt class="profile-fact__label">industry</dt>
+              <dd class="profile-fact__value">
+                <span class="line">b2b saas — content marketing tool, early stage</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">use cases</dt>
+              <dd class="profile-fact__value">
+                <span class="line">content strategy, planning, approval workflow</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">team</dt>
+              <dd class="profile-fact__value">
+                <span class="line">small, no marketing function</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">before</dt>
+              <dd class="profile-fact__value">
+                <span class="line">no marketing activity</span>
+                <span class="line">something quietly going wrong</span>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">20 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 21 · MCS REALITY — case 3
+           Section 5 · Case 3 · Minute 24.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="21" data-section="5" data-section-name="case 3 · retention" data-minute="24.5" aria-label="MCS Reality case 3">
+        <div class="mcs-slide">
+
+          <div class="mcs-slide__header">
+            <div class="mcs-slide__title">marketing control <span class="accent">sheet</span></div>
+            <div class="mcs-slide__case">case 3 · retention</div>
+          </div>
+
+          <div class="mcs-slide__table-wrap">
+            <table class="mcs-table" aria-label="Marketing Control Sheet — Case 3 Reality">
+              <thead>
+                <tr>
+                  <th>metric</th>
+                  <th>reality</th>
+                  <th>benchmark</th>
+                  <th>status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="metric">awareness</td>
+                  <td class="reality">~1,234</td>
+                  <td class="benchmark">—</td>
+                  <td class="status">—</td>
+                </tr>
+                <tr>
+                  <td class="metric">leads</td>
+                  <td class="reality">52 <span class="pct">4.2 %</span></td>
+                  <td class="benchmark">2 – 5 %</td>
+                  <td class="status"><span class="ok">✓</span></td>
+                </tr>
+                <tr>
+                  <td class="metric">qualified</td>
+                  <td class="reality">—</td>
+                  <td class="benchmark">—</td>
+                  <td class="status">not tracked</td>
+                </tr>
+                <tr>
+                  <td class="metric">paid</td>
+                  <td class="reality">3 new <span class="pct">~6 %</span></td>
+                  <td class="benchmark">—</td>
+                  <td class="status"><span class="ok">✓</span></td>
+                </tr>
+                <tr class="row--leak">
+                  <td class="metric">retained</td>
+                  <td class="reality">19 → 10 <span class="pct">52 %</span></td>
+                  <td class="benchmark">85 – 95 %</td>
+                  <td class="status"><span class="fail">✗</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="mcs-leak-frame"></div>
+            <div class="mcs-leak-label">leak</div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">21 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 22 · BLEED — retention drop graph (case 3)
+           Section 5 · Case 3 · Minute 31
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="22" data-section="5" data-section-name="case 3 · retention" data-minute="31" aria-label="Bleed — case 3 retention drop">
+        <div class="gap-slide gap-slide--retention">
+
+          <div class="section-label">case 3 · the bleed</div>
+
+          <h1 class="gap-slide__headline">
+            the bottom is <span class="accent">bleeding</span>.
+          </h1>
+
+          <div class="gap-viz">
+            <div class="gap-col gap-col--year1">
+              <span class="gap-col__label">year 1</span>
+              <span class="gap-col__sub">starting strong</span>
+              <div class="gap-col__bar"></div>
+              <span class="gap-col__value">100 %</span>
+            </div>
+            <div class="gap-col gap-col--year2">
+              <span class="gap-col__label">year 2</span>
+              <span class="gap-col__sub">retention only</span>
+              <div class="gap-col__bar"></div>
+              <span class="gap-col__value">52 %</span>
+            </div>
+
+            <div class="gap-arrow" aria-hidden="true">
+              <span class="gap-arrow__symbol">↓</span>
+              <span class="gap-arrow__label">arr · −47 %</span>
+            </div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">22 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 23 · STATEMENT lesson — fix the bottom first (case 3)
+           Section 5 · Case 3 · Minute 31.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="23" data-section="5" data-section-name="case 3 · retention" data-minute="31.5" aria-label="Lesson — case 3">
+        <div class="statement-slide">
+          <div></div>
+          <div class="statement-slide__body">
+            <h1 class="statement-slide__headline">
+              <span class="line line--1">fix the bottom</span>
+              <span class="line line--2"><span class="accent">first</span>.</span>
+              <span class="line line--3">everything above compounds.</span>
+            </h1>
+            <p class="statement-slide__subline">
+              retention is the cheapest growth lever you have.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">23 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 24 · MONDAY MORNING CHECKLIST
+           Section 6 · Takeaway · Minute 32
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="24" data-section="6" data-section-name="takeaway" data-minute="32" aria-label="Monday morning checklist">
+        <div class="checklist-slide">
+
+          <div class="checklist-slide__intro">
+            <div class="section-label">section 6 · takeaway</div>
+            <h1 class="checklist-slide__headline">
+              <span class="line line--1">the monday</span>
+              <span class="line line--2">morning</span>
+              <span class="line line--3"><span class="accent">checklist</span>.</span>
+            </h1>
+            <div class="checklist-slide__sub">
+              <span class="line">five questions</span>
+              <span class="line">to ask your team.</span>
+            </div>
+          </div>
+
+          <ol class="checklist-slide__list">
+            <li>
+              <span class="num">01</span>
+              <span class="question">do you know your <span class="accent">reality</span> numbers?</span>
+            </li>
+            <li>
+              <span class="num">02</span>
+              <span class="question">do you know your <span class="accent">plan</span> numbers?</span>
+            </li>
+            <li>
+              <span class="num">03</span>
+              <span class="question">where is the <span class="accent">biggest gap</span>?</span>
+            </li>
+            <li>
+              <span class="num">04</span>
+              <span class="question">what's your <span class="accent">hypothesis</span> for it?</span>
+            </li>
+            <li>
+              <span class="num">05</span>
+              <span class="question">what's the <span class="accent">first fix</span> you'll test?</span>
+            </li>
+          </ol>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">24 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 25 · STATEMENT — core message
+           Section 6 · Takeaway · Minute 33.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="25" data-section="6" data-section-name="takeaway" data-minute="33.5" aria-label="Core message — funnels need a fixer">
+        <div class="statement-slide">
+          <div></div>
+          <div class="statement-slide__body">
+            <h1 class="statement-slide__headline">
+              <span class="line line--1">most saas funnels</span>
+              <span class="line line--2">don't need a redesign.</span>
+              <span class="line line--3">they need a <span class="accent">fixer</span>.</span>
+            </h1>
+            <p class="statement-slide__subline">
+              the marketing control sheet tells you where to start.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">25 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 26 · QR — Hot CTA LinkedIn
+           Section 7 · CTA · Minute 35
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="26" data-section="7" data-section-name="cta" data-minute="35" aria-label="Hot CTA — LinkedIn 30-min teardown">
+        <div class="qr-slide">
+
+          <div class="qr-slide__content">
+            <div class="section-label">section 7 · hot cta</div>
+            <h1 class="qr-slide__headline">
+              <span class="line line--1">5</span>
+              <span class="line line--2"><span class="accent">slots</span>.</span>
+            </h1>
+            <p class="qr-slide__sub">
+              <span class="line">30-minute funnel teardown.</span>
+              <span class="line">free.</span>
+            </p>
+            <p class="qr-slide__instruction">
+              <span class="line">dm me with a link to your funnel.</span>
+              <span class="line">first five <span class="accent">get in</span>.</span>
+            </p>
+          </div>
+
+          <div class="qr-slide__qr">
+            <div class="qr-slide__image">
+              <img alt="QR — linkedin.com/in/vladana-bacova"
+                   src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&color=17252A&bgcolor=FFFFFF&qzone=2&data=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fvladana-bacova%2F">
+            </div>
+            <div class="qr-slide__url">linkedin.com/in/vladana-bacova</div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">26 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 27 · CLOSE + WEB — thank you + template download
+           Section 7 · CTA · Minute 37
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="27" data-section="7" data-section-name="cta" data-minute="37" aria-label="Close — thank you and template download">
+        <div class="qr-slide">
+
+          <div class="qr-slide__content">
+            <div class="section-label">thank you for forty minutes</div>
+            <h1 class="qr-slide__headline">
+              <span class="line line--1">now go</span>
+              <span class="line line--2"><span class="accent">fix</span></span>
+              <span class="line line--3">your funnel.</span>
+            </h1>
+            <p class="qr-slide__sub">
+              <span class="line">scan to grab the template.</span>
+              <span class="line">case studies + everything you saw today.</span>
+            </p>
+          </div>
+
+          <div class="qr-slide__qr">
+            <div class="qr-slide__image">
+              <img alt="QR — prettymuchnomads.com/webexpo"
+                   src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&color=17252A&bgcolor=FFFFFF&qzone=2&data=https%3A%2F%2Fprettymuchnomads.com%2Fwebexpo">
+            </div>
+            <div class="qr-slide__url">prettymuchnomads.com/webexpo</div>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">27 / 27</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

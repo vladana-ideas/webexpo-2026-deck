@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About slide preview — WebExpo 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Bree+Serif&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --turquoise: #2CE5C6;
+      --dark-teal: #17252A;
+      --white: #FFFFFF;
+      --font-display: 'Quicksand', system-ui, sans-serif;
+      --font-body: 'Ubuntu', system-ui, sans-serif;
+      --font-accent: 'Bree Serif', Georgia, serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .stage {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deck {
+      position: relative;
+      width: min(100vw, calc(100vh * 16 / 9));
+      height: min(100vh, calc(100vw * 9 / 16));
+      background: var(--dark-teal);
+      overflow: hidden;
+      container-type: inline-size;
+    }
+
+    .about {
+      position: absolute;
+      inset: 0;
+      padding: 5cqw 9cqw;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 1.5cqw;
+    }
+
+    /* Section label */
+    .about__label {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1.4cqw;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      opacity: 0;
+      transform: translateY(0.4cqw);
+      animation: rise 0.7s 0.1s forwards ease-out;
+    }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Body — photo + text */
+    .about__body {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4cqw;
+      align-items: center;
+    }
+
+    /* ── Photo + decoration ──────────────────────────── */
+
+    .photo-wrap {
+      position: relative;
+      width: 18cqw;
+      height: 18cqw;
+      flex: none;
+      opacity: 0;
+      animation: photoIn 0.9s 0.5s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes photoIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 22%;
+      filter: grayscale(1) contrast(1.05);
+    }
+
+    /* Animated turquoise ring around photo (drawn, then pulses) */
+    .photo-ring {
+      position: absolute;
+      inset: -1.2cqw;
+      width: calc(100% + 2.4cqw);
+      height: calc(100% + 2.4cqw);
+      pointer-events: none;
+    }
+
+    .photo-ring circle {
+      fill: none;
+      stroke: var(--turquoise);
+      stroke-width: 0.8;
+      stroke-dasharray: 314;
+      stroke-dashoffset: 314;
+      transform-origin: center;
+      transform: rotate(-90deg);
+      animation:
+        drawRing 1.6s 0.8s forwards cubic-bezier(0.7, 0, 0.3, 1),
+        ringGlow 4s 2.6s infinite ease-in-out;
+    }
+
+    @keyframes drawRing {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes ringGlow {
+      0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 0.4cqw rgba(44, 229, 198, 0.4)); }
+      50%      { opacity: 1;   filter: drop-shadow(0 0 1.2cqw rgba(44, 229, 198, 0.7)); }
+    }
+
+    /* Decorative scattered dots around the photo */
+    .deco-dot {
+      position: absolute;
+      background: var(--turquoise);
+      border-radius: 50%;
+      opacity: 0;
+      animation: decoIn 0.6s forwards cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes decoIn {
+      to { opacity: 1; }
+    }
+
+    .deco-dot--1 {
+      width: 1.4cqw;
+      height: 1.4cqw;
+      top: 8%;
+      right: -5%;
+      animation-delay: 1.4s;
+    }
+    .deco-dot--2 {
+      width: 0.9cqw;
+      height: 0.9cqw;
+      bottom: 18%;
+      left: -8%;
+      animation-delay: 1.6s;
+      opacity: 0;
+      background: rgba(44, 229, 198, 0.65);
+    }
+    .deco-dot--3 {
+      width: 0.6cqw;
+      height: 0.6cqw;
+      bottom: 4%;
+      right: 6%;
+      animation-delay: 1.8s;
+      opacity: 0;
+      background: rgba(44, 229, 198, 0.5);
+    }
+
+    /* ── Text content ────────────────────────────────── */
+
+    .about__content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5cqw;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .about__hello {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 6.5cqw;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-transform: lowercase;
+      margin: 0;
+      opacity: 0;
+      filter: blur(1.2cqw);
+      transform: translateY(0.4cqw);
+      animation: focusIn 0.9s 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes focusIn {
+      to { opacity: 1; filter: blur(0); transform: translateY(0); }
+    }
+
+    .about__hello .accent { color: var(--turquoise); }
+
+    .about__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1cqw;
+      max-width: 100%;
+    }
+
+    .about__list li {
+      display: flex;
+      align-items: baseline;
+      gap: 1.6cqw;
+      opacity: 0;
+      transform: translateX(-1cqw);
+      animation: slideIn 0.7s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .about__list li:nth-child(1) { animation-delay: 1.4s; }
+    .about__list li:nth-child(2) { animation-delay: 1.6s; }
+    .about__list li:nth-child(3) { animation-delay: 1.8s; }
+    .about__list li:nth-child(4) { animation-delay: 2.0s; }
+
+    @keyframes slideIn {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .about__list .num {
+      flex: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.4cqw;
+      letter-spacing: 0.05em;
+      color: var(--turquoise);
+      font-variant-numeric: tabular-nums;
+      width: 2.6cqw;
+      align-self: flex-start;
+      padding-top: 0.4cqw;
+    }
+
+    .about__list .text {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.9cqw;
+      line-height: 1.3;
+      color: var(--white);
+      text-transform: lowercase;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1cqw;
+    }
+
+    .about__list .text .line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .about__list .text .accent { color: var(--turquoise); }
+
+    /* ── Footer ────────────────────────────────────────── */
+
+    .about__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+      animation: rise 0.9s 2.6s forwards ease-out;
+    }
+
+    .about__brand {
+      display: flex;
+      align-items: center;
+      gap: 1.6cqw;
+    }
+
+    .about__logo {
+      height: 3cqw;
+      width: auto;
+      opacity: 0.85;
+    }
+
+    .about__handle {
+      font-family: var(--font-body);
+      font-size: 1.3cqw;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      opacity: 0.65;
+      white-space: nowrap;
+    }
+
+    .about__pager {
+      font-family: var(--font-body);
+      font-size: 1.2cqw;
+      letter-spacing: 0.18em;
+      color: var(--white);
+      opacity: 0.5;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Half-dots */
+    .half-dots {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 36cqw;
+      width: 4.4cqw;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .half-dots .dot {
+      width: 4.4cqw;
+      height: 4.4cqw;
+      background: var(--turquoise);
+      border-radius: 50%;
+      transform: translateX(50%) translateY(-1cqw);
+      opacity: 0;
+    }
+
+    .half-dots .dot--1 { animation: dotDrop 0.7s 0.7s forwards cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .half-dots .dot--2 { animation: dotDrop 0.7s 0.9s forwards cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .half-dots .dot--3 { animation: dotDrop 0.7s 1.1s forwards cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+    @keyframes dotDrop {
+      to { transform: translateX(50%) translateY(0); opacity: 1; }
+    }
+
+    /* Replay control */
+    .replay {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.4;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .replay:hover { opacity: 0.85; border-color: var(--turquoise); }
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="deck">
+      <section class="about" id="aboutSlide">
+
+        <div class="about__label">why listen to me</div>
+
+        <div class="about__body">
+
+          <div class="photo-wrap">
+            <img class="photo" src="../assets/Vladana Bačová foto/Bacova_Vladana-3.jpg" alt="Vladana Bačová">
+            <svg class="photo-ring" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="50"/>
+            </svg>
+            <span class="deco-dot deco-dot--1"></span>
+            <span class="deco-dot deco-dot--2"></span>
+            <span class="deco-dot deco-dot--3"></span>
+          </div>
+
+          <div class="about__content">
+            <h1 class="about__hello">hi, i'm <span class="accent">vladana</span>.</h1>
+
+            <ol class="about__list">
+              <li>
+                <span class="num">01</span>
+                <span class="text">
+                  <span class="line">fractional cmo for b2b saas</span>
+                </span>
+              </li>
+              <li>
+                <span class="num">02</span>
+                <span class="text">
+                  <span class="line">the first certified ux writer in the czech republic</span>
+                </span>
+              </li>
+              <li>
+                <span class="num">03</span>
+                <span class="text">
+                  <span class="line">founder of contesaur — my own saas</span>
+                </span>
+              </li>
+              <li>
+                <span class="num">04</span>
+                <span class="text">
+                  <span class="line">12+ years in b2b marketing</span>
+                </span>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+
+        <div class="about__footer">
+          <div class="about__brand">
+            <img class="about__logo" src="../assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+            <span class="about__handle">vladana bačová</span>
+          </div>
+          <span class="about__pager">2 / 24</span>
+        </div>
+
+        <div class="half-dots" aria-hidden="true">
+          <span class="dot dot--1"></span>
+          <span class="dot dot--2"></span>
+          <span class="dot dot--3"></span>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <button class="replay" id="replay">replay animation</button>
+
+  <script>
+    function bindReplay() {
+      document.getElementById('replay').addEventListener('click', () => {
+        const slide = document.getElementById('aboutSlide');
+        const clone = slide.cloneNode(true);
+        slide.parentNode.replaceChild(clone, slide);
+        clone.id = 'aboutSlide';
+        bindReplay();
+      });
+    }
+    bindReplay();
+  </script>
+
+</body>
+</html>

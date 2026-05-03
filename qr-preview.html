@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR + invitation preview — WebExpo 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Bree+Serif&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --turquoise: #2CE5C6;
+      --dark-teal: #17252A;
+      --white: #FFFFFF;
+      --font-display: 'Quicksand', system-ui, sans-serif;
+      --font-body: 'Ubuntu', system-ui, sans-serif;
+      --font-accent: 'Bree Serif', Georgia, serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .stage {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deck {
+      position: relative;
+      width: min(100vw, calc(100vh * 16 / 9));
+      height: min(100vh, calc(100vw * 9 / 16));
+      background: var(--dark-teal);
+      overflow: hidden;
+      container-type: inline-size;
+    }
+
+    .qr-slide {
+      position: absolute;
+      inset: 0;
+      padding: 5cqw 9cqw;
+      display: grid;
+      grid-template-columns: 1fr 32cqw;
+      grid-template-rows: 1fr auto;
+      column-gap: 7cqw;
+      row-gap: 3cqw;
+    }
+
+    /* ── Left column: invitation content ─────────────── */
+
+    .qr-slide__content {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5cqw;
+      min-width: 0;
+    }
+
+    .qr-slide__label {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1.4cqw;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      opacity: 0;
+      transform: translateY(0.4cqw);
+      animation: rise 0.7s 0.1s forwards ease-out;
+    }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .qr-slide__headline {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 6cqw;
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      text-transform: lowercase;
+      margin: 0;
+    }
+
+    .qr-slide__headline .line {
+      display: block;
+      white-space: nowrap;
+      opacity: 0;
+      filter: blur(1.2cqw);
+      transform: translateY(0.4cqw);
+      animation: focusIn 0.85s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .qr-slide__headline .line--1 { animation-delay: 0.4s; }
+    .qr-slide__headline .line--2 { animation-delay: 0.8s; }
+    .qr-slide__headline .line--3 { animation-delay: 1.2s; }
+
+    @keyframes focusIn {
+      to { opacity: 1; filter: blur(0); transform: translateY(0); }
+    }
+
+    .qr-slide__headline .accent { color: var(--turquoise); }
+
+    .qr-slide__sub {
+      font-family: var(--font-accent);
+      font-size: 2cqw;
+      line-height: 1.4;
+      color: var(--white);
+      opacity: 0;
+      animation: rise 0.8s 1.6s forwards ease-out;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3cqw;
+    }
+
+    .qr-slide__sub .line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .qr-slide__instruction {
+      font-family: var(--font-body);
+      font-size: 1.4cqw;
+      line-height: 1.5;
+      color: var(--white);
+      opacity: 0;
+      animation: rise 0.8s 2.0s forwards ease-out;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3cqw;
+      max-width: 100%;
+    }
+
+    .qr-slide__instruction .line {
+      display: block;
+      white-space: nowrap;
+      opacity: 0.75;
+    }
+
+    .qr-slide__instruction .line .accent {
+      color: var(--turquoise);
+      opacity: 1;
+      font-weight: 600;
+    }
+
+    /* ── Right column: QR + URL ──────────────────────── */
+
+    .qr-slide__qr {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.6cqw;
+      opacity: 0;
+      animation: qrIn 0.9s 1.4s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes qrIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .qr-image {
+      width: 26cqw;
+      height: 26cqw;
+      background: var(--white);
+      border-radius: 1.2cqw;
+      padding: 1.2cqw;
+      box-shadow: 0 0 0 1px rgba(44, 229, 198, 0.4),
+                  0 0 32px rgba(44, 229, 198, 0.15);
+      display: block;
+    }
+
+    .qr-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .qr-url {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1.4cqw;
+      letter-spacing: 0.06em;
+      color: var(--turquoise);
+      text-align: center;
+      max-width: 100%;
+      word-break: break-all;
+    }
+
+    /* ── Footer ─────────────────────────────────────── */
+
+    .qr-slide__footer {
+      grid-column: 1 / span 2;
+      grid-row: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+      animation: rise 0.9s 2.6s forwards ease-out;
+    }
+
+    .qr-slide__brand {
+      display: flex;
+      align-items: center;
+      gap: 1.6cqw;
+    }
+
+    .qr-slide__logo {
+      height: 3cqw;
+      width: auto;
+      opacity: 0.85;
+    }
+
+    .qr-slide__handle {
+      font-family: var(--font-body);
+      font-size: 1.3cqw;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      opacity: 0.65;
+      white-space: nowrap;
+    }
+
+    .qr-slide__pager {
+      font-family: var(--font-body);
+      font-size: 1.2cqw;
+      letter-spacing: 0.18em;
+      color: var(--white);
+      opacity: 0.5;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Half-dots */
+    .half-dots {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 36cqw;
+      width: 4.4cqw;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 0;
+    }
+
+    .half-dots .dot {
+      width: 4.4cqw;
+      height: 4.4cqw;
+      background: var(--turquoise);
+      border-radius: 50%;
+      transform: translateX(50%) translateY(-1cqw);
+      opacity: 0;
+    }
+
+    .half-dots .dot--1 { animation: dotDrop 0.7s 0.6s forwards cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .half-dots .dot--2 { animation: dotDrop 0.7s 0.8s forwards cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .half-dots .dot--3 { animation: dotDrop 0.7s 1.0s forwards cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+    @keyframes dotDrop {
+      to { transform: translateX(50%) translateY(0); opacity: 1; }
+    }
+
+    /* Replay + switcher */
+    .replay {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.4;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .replay:hover { opacity: 0.85; border-color: var(--turquoise); }
+
+    .switcher {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      display: flex;
+      gap: 6px;
+      z-index: 100;
+    }
+
+    .switcher button {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.5;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .switcher button.is-active {
+      opacity: 1;
+      border-color: var(--turquoise);
+      color: var(--turquoise);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="deck">
+      <section class="qr-slide" id="qrSlide">
+
+        <div class="qr-slide__content">
+          <div class="qr-slide__label" id="label">section 2 · the tool</div>
+          <h1 class="qr-slide__headline" id="headline"></h1>
+          <p class="qr-slide__sub" id="sub"></p>
+          <p class="qr-slide__instruction" id="instruction"></p>
+        </div>
+
+        <div class="qr-slide__qr">
+          <div class="qr-image">
+            <img id="qrImage" alt="QR code" src="">
+          </div>
+          <div class="qr-url" id="qrUrl"></div>
+        </div>
+
+        <div class="qr-slide__footer">
+          <div class="qr-slide__brand">
+            <img class="qr-slide__logo" src="../assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+            <span class="qr-slide__handle">vladana bačová</span>
+          </div>
+          <span class="qr-slide__pager" id="pager">5 / 24</span>
+        </div>
+
+        <div class="half-dots" aria-hidden="true">
+          <span class="dot dot--1"></span>
+          <span class="dot dot--2"></span>
+          <span class="dot dot--3"></span>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <div class="switcher" id="switcher">
+    <button data-v="template" class="is-active">mcs template</button>
+    <button data-v="hot">hot cta · linkedin</button>
+    <button data-v="soft">soft cta · newsletter</button>
+  </div>
+
+  <button class="replay" id="replay">replay animation</button>
+
+  <script>
+    const QR_API = 'https://api.qrserver.com/v1/create-qr-code/?size=400x400&color=17252A&bgcolor=FFFFFF&qzone=2&data=';
+
+    const variants = {
+      template: {
+        label: 'section 2 · the tool',
+        headline: [
+          'the marketing',
+          'control',
+          { text: 'sheet.', accent: true },
+        ],
+        sub: [
+          'free template.',
+          'yours after the talk.',
+        ],
+        instruction: [
+          'scan it now.',
+          { text: "don't fill it in yet — ", accent: 'distracting.' },
+        ],
+        url: 'prettymuchnomads.com/webexpo',
+        pager: '5 / 24',
+      },
+      hot: {
+        label: 'section 7 · hot cta',
+        headline: [
+          'five',
+          { text: 'slots.', accent: true },
+        ],
+        sub: [
+          '30-minute funnel teardown.',
+          'free.',
+        ],
+        instruction: [
+          'dm me with a link to your funnel.',
+          { text: 'first five ', accent: 'get in.' },
+        ],
+        url: 'linkedin.com/in/vladanabacova',
+        pager: '21 / 24',
+      },
+      soft: {
+        label: 'section 7 · soft cta',
+        headline: [
+          'for everyone',
+          { text: 'else.', accent: true },
+        ],
+        sub: [
+          'follow me on linkedin.',
+          'sign up to the newsletter.',
+        ],
+        instruction: [
+          'once a month: one real broken funnel.',
+          { text: 'plus the mcs behind it. ', accent: 'no fluff.' },
+        ],
+        url: 'prettymuchnomads.com/webexpo',
+        pager: '23 / 24',
+      },
+    };
+
+    function renderHeadline(items) {
+      return items.map((item, idx) => {
+        if (typeof item === 'string') {
+          return `<span class="line line--${idx + 1}">${item}</span>`;
+        }
+        const cls = item.accent ? 'line accent' : 'line';
+        return `<span class="${cls} line--${idx + 1}">${item.text}</span>`;
+      }).join('');
+    }
+
+    function renderLines(items) {
+      return items.map(item => {
+        if (typeof item === 'string') {
+          return `<span class="line">${item}</span>`;
+        }
+        // accent inline at the end
+        return `<span class="line">${item.text}<span class="accent">${item.accent}</span></span>`;
+      }).join('');
+    }
+
+    function applyVariant(v) {
+      const data = variants[v];
+      document.getElementById('label').textContent = data.label;
+      document.getElementById('headline').innerHTML = renderHeadline(data.headline);
+      document.getElementById('sub').innerHTML = renderLines(data.sub);
+      document.getElementById('instruction').innerHTML = renderLines(data.instruction);
+      document.getElementById('qrImage').src = QR_API + encodeURIComponent('https://' + data.url);
+      document.getElementById('qrUrl').textContent = data.url;
+      document.getElementById('pager').textContent = data.pager;
+      replayAnimation();
+    }
+
+    function replayAnimation() {
+      const slide = document.getElementById('qrSlide');
+      const clone = slide.cloneNode(true);
+      slide.parentNode.replaceChild(clone, slide);
+      clone.id = 'qrSlide';
+    }
+
+    document.querySelectorAll('#switcher button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#switcher button').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        applyVariant(btn.dataset.v);
+      });
+    });
+
+    document.getElementById('replay').addEventListener('click', replayAnimation);
+
+    applyVariant('template');
+  </script>
+
+</body>
+</html>

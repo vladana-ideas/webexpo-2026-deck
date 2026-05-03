@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2-column compare preview — WebExpo 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Bree+Serif&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --turquoise: #2CE5C6;
+      --turquoise-tint: #E8FFFB;
+      --dark-teal: #17252A;
+      --white: #FFFFFF;
+      --warning: #E8813C;
+      --font-display: 'Quicksand', system-ui, sans-serif;
+      --font-body: 'Ubuntu', system-ui, sans-serif;
+      --font-accent: 'Bree Serif', Georgia, serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .stage {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deck {
+      position: relative;
+      width: min(100vw, calc(100vh * 16 / 9));
+      height: min(100vh, calc(100vw * 9 / 16));
+      background: var(--dark-teal);
+      overflow: hidden;
+      container-type: inline-size;
+    }
+
+    .compare {
+      position: absolute;
+      inset: 0;
+      padding: 4cqw 7cqw;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 1.6cqw;
+    }
+
+    .compare__body { min-height: 0; }
+
+    /* ── Header ────────────────────────────────────────── */
+
+    .compare__header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2cqw;
+      opacity: 0;
+      animation: rise 0.7s 0.1s forwards ease-out;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(0.6cqw); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .compare__title {
+      font-family: var(--font-display);
+      font-size: 3cqw;
+      font-weight: 500;
+      color: var(--white);
+      text-transform: lowercase;
+      line-height: 1;
+    }
+
+    .compare__title .accent { color: var(--turquoise); }
+
+    .compare__pill {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1.3cqw;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      padding: 0.6cqw 1.4cqw;
+      border: 1px solid rgba(44, 229, 198, 0.5);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* ── Two-column body ───────────────────────────────── */
+
+    .compare__body {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 2.5cqw;
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    .col {
+      position: relative;
+      padding: 2.2cqw 2.5cqw 2.5cqw;
+      border-radius: 1.2cqw;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5cqw;
+      opacity: 0;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .col--left {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      animation: slideInLeft 0.8s 0.5s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .col--right {
+      background: rgba(44, 229, 198, 0.08);
+      border: 1px solid rgba(44, 229, 198, 0.45);
+      box-shadow: 0 0 0 1px rgba(44, 229, 198, 0.15), 0 0 24px rgba(44, 229, 198, 0.15);
+      animation: slideInRight 0.8s 0.7s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-1.5cqw); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(1.5cqw); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Vertical divider between columns */
+    .compare__divider {
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.15), transparent);
+      align-self: stretch;
+    }
+
+    .col__heading {
+      font-family: var(--font-display);
+      font-size: 2.4cqw;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-transform: lowercase;
+      line-height: 1;
+    }
+
+    .col--left .col__heading { color: rgba(255,255,255,0.75); }
+    .col--right .col__heading { color: var(--turquoise); }
+
+    .col__heading .badge {
+      display: inline-block;
+      margin-left: 0.6cqw;
+      font-family: var(--font-body);
+      font-size: 0.9cqw;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.3cqw 0.8cqw;
+      border-radius: 999px;
+      vertical-align: middle;
+    }
+
+    .col--left  .col__heading .badge { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+    .col--right .col__heading .badge { background: var(--turquoise);     color: var(--dark-teal); }
+
+    /* List items */
+    .col__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4cqw;
+      margin-top: 1cqw;
+    }
+
+    .col__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2cqw;
+      font-family: var(--font-display);
+      font-size: 1.7cqw;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--white);
+      opacity: 0.9;
+    }
+
+    .col__list li .marker {
+      flex: none;
+      width: 1.6cqw;
+      height: 1.6cqw;
+      margin-top: 0.3cqw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2cqw;
+      font-weight: 700;
+      border-radius: 50%;
+    }
+
+    .col--left .col__list li .marker {
+      background: rgba(232, 129, 60, 0.15);
+      color: var(--warning);
+      border: 1px solid rgba(232, 129, 60, 0.4);
+    }
+
+    .col--right .col__list li .marker {
+      background: rgba(44, 229, 198, 0.18);
+      color: var(--turquoise);
+      border: 1px solid var(--turquoise);
+    }
+
+    .col--left .col__list li {
+      opacity: 0.55;
+    }
+
+    /* ── Before/After MCS variant ──────────────────────── */
+
+    .mcs-mini {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-body);
+      background: var(--white);
+      border-radius: 0.8cqw;
+      overflow: hidden;
+    }
+
+    .mcs-mini thead tr { background: var(--turquoise); }
+    .mcs-mini th {
+      padding: 0.8cqw 1.4cqw;
+      font-size: 1.3cqw;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--dark-teal);
+      text-align: left;
+    }
+    .mcs-mini td {
+      padding: 0.8cqw 1.4cqw;
+      font-size: 1.6cqw;
+      color: var(--dark-teal);
+      border-bottom: 1px solid rgba(23, 37, 42, 0.1);
+      font-variant-numeric: tabular-nums;
+    }
+    .mcs-mini tbody tr:last-child td { border-bottom: none; }
+    .mcs-mini .row--leak { background: var(--turquoise-tint); position: relative; }
+    .mcs-mini .row--leak td { font-weight: 700; }
+    .mcs-mini .metric { font-family: var(--font-display); font-weight: 600; text-transform: lowercase; font-size: 1.7cqw; }
+    .mcs-mini .reality { font-weight: 700; font-size: 1.9cqw; }
+
+    .col__delta {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2cqw;
+      padding-top: 1cqw;
+    }
+
+    .col__delta-label {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1.15cqw;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      color: var(--white);
+    }
+
+    .col__delta-value {
+      font-family: var(--font-display);
+      font-size: 2.6cqw;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .col--left .col__delta-value { color: var(--warning); }
+    .col--right .col__delta-value { color: var(--turquoise); }
+
+    /* ── Screenshot variant ────────────────────────────── */
+
+    .shot {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(180deg, #1f3036 0%, #0d1518 100%);
+      border-radius: 0.8cqw;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .shot__placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 1cqw;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* Annotation callouts */
+    .callout {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 0.6cqw;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.1cqw;
+      padding: 0.5cqw 1cqw;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .col--left .callout {
+      background: rgba(232, 129, 60, 0.18);
+      color: var(--warning);
+      border: 1px solid rgba(232, 129, 60, 0.5);
+    }
+
+    .col--right .callout {
+      background: rgba(44, 229, 198, 0.18);
+      color: var(--turquoise);
+      border: 1px solid var(--turquoise);
+    }
+
+    /* ── Footer ────────────────────────────────────────── */
+
+    .compare__footer {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2cqw;
+      opacity: 0;
+      animation: rise 0.7s 1.4s forwards ease-out;
+    }
+
+    .compare__caption {
+      font-family: var(--font-accent);
+      font-size: 1.6cqw;
+      color: var(--white);
+      opacity: 0.85;
+      max-width: 65%;
+      line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3cqw;
+    }
+
+    .compare__caption .line { display: block; white-space: nowrap; }
+
+    .compare__brand {
+      display: flex;
+      align-items: center;
+      gap: 1.2cqw;
+    }
+
+    .compare__logo {
+      height: 2.8cqw;
+      width: auto;
+      opacity: 0.9;
+    }
+
+    .compare__pager {
+      font-family: var(--font-body);
+      font-size: 1.2cqw;
+      letter-spacing: 0.18em;
+      color: var(--white);
+      opacity: 0.55;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Half-dots ─────────────────────────────────────── */
+
+    .half-dots {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 32cqw;
+      width: 4.4cqw;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .half-dots .dot {
+      width: 4.4cqw;
+      height: 4.4cqw;
+      background: var(--turquoise);
+      border-radius: 50%;
+      transform: translateX(50%) translateY(-1cqw);
+      opacity: 0;
+    }
+
+    .half-dots .dot--1 { animation: dotDrop 0.7s 0.3s forwards cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .half-dots .dot--2 { animation: dotDrop 0.7s 0.5s forwards cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .half-dots .dot--3 { animation: dotDrop 0.7s 0.7s forwards cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+    @keyframes dotDrop {
+      to { transform: translateX(50%) translateY(0); opacity: 1; }
+    }
+
+    /* Replay + switcher */
+    .replay {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.4;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .replay:hover { opacity: 0.85; border-color: var(--turquoise); }
+
+    .switcher {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      display: flex;
+      gap: 6px;
+      z-index: 100;
+    }
+
+    .switcher button {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.5;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .switcher button.is-active {
+      opacity: 1;
+      border-color: var(--turquoise);
+      color: var(--turquoise);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="deck">
+      <section class="compare" id="compareSlide">
+
+        <div class="compare__header">
+          <div class="compare__title" id="title">
+            is this <span class="accent">for you?</span>
+          </div>
+          <div class="compare__pill" id="pill">section 1 · disqualifier</div>
+        </div>
+
+        <div class="compare__body" id="body">
+          <!-- content injected per variant -->
+        </div>
+
+        <div class="compare__footer">
+          <div class="compare__caption" id="caption">
+            <span class="line">spend the next minute deciding.</span>
+            <span class="line">if you stay, the next 37 are for you.</span>
+          </div>
+          <div class="compare__brand">
+            <img class="compare__logo" src="../assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+            <span class="compare__pager" id="pager">3 / 31</span>
+          </div>
+        </div>
+
+        <div class="half-dots" aria-hidden="true">
+          <span class="dot dot--1"></span>
+          <span class="dot dot--2"></span>
+          <span class="dot dot--3"></span>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <div class="switcher" id="switcher">
+    <button data-v="audience" class="is-active">audience filter</button>
+    <button data-v="mcs">before / after mcs</button>
+    <button data-v="changes">what we changed</button>
+  </div>
+
+  <button class="replay" id="replay">replay animation</button>
+
+  <script>
+    // ── Variant content ────────────────────────────────────
+
+    function variantAudience() {
+      document.getElementById('title').innerHTML  = 'is this <span class="accent">for you?</span>';
+      document.getElementById('pill').textContent = 'section 1 · disqualifier';
+      document.getElementById('pager').textContent = '3 / 31';
+      document.getElementById('caption').innerHTML = `
+        <span class="line">spend the next minute deciding.</span>
+        <span class="line">if you stay, the next 37 are for you.</span>
+      `;
+      document.getElementById('body').innerHTML = `
+        <div class="col col--left">
+          <div class="col__heading">
+            not for you<span class="badge">skip</span>
+          </div>
+          <ul class="col__list">
+            <li><span class="marker">✕</span><span>you run paid ads and obsess over cpc</span></li>
+            <li><span class="marker">✕</span><span>you're pre-revenue with no funnel data</span></li>
+            <li><span class="marker">✕</span><span>you're b2c, d2c, or e-commerce</span></li>
+          </ul>
+        </div>
+        <div class="compare__divider"></div>
+        <div class="col col--right">
+          <div class="col__heading">
+            for you<span class="badge">stay</span>
+          </div>
+          <ul class="col__list">
+            <li><span class="marker">✓</span><span>you sell b2b saas to other businesses</span></li>
+            <li><span class="marker">✓</span><span>leads aren't becoming paying users</span></li>
+            <li><span class="marker">✓</span><span>you have data and need to read it right</span></li>
+          </ul>
+        </div>
+      `;
+    }
+
+    function variantMcs() {
+      document.getElementById('title').innerHTML  = 'fix <span class="accent">applied</span>';
+      document.getElementById('pill').textContent = 'case 1 · acquisition · before & after';
+      document.getElementById('pager').textContent = '12 / 31';
+      document.getElementById('caption').innerHTML = `
+        <span class="line">same traffic. same product.</span>
+        <span class="line">three times more leads in 90 days.</span>
+      `;
+      const before = `
+        <div class="col col--left">
+          <div class="col__heading">before<span class="badge">leak</span></div>
+          <table class="mcs-mini">
+            <thead><tr><th>metric</th><th>reality</th></tr></thead>
+            <tbody>
+              <tr><td class="metric">awareness</td><td class="reality">13,016</td></tr>
+              <tr class="row--leak"><td class="metric">leads</td><td class="reality">169 (1.3 %)</td></tr>
+              <tr><td class="metric">qualified</td><td class="reality">166</td></tr>
+              <tr><td class="metric">paid</td><td class="reality">115</td></tr>
+              <tr><td class="metric">retained</td><td class="reality">39</td></tr>
+            </tbody>
+          </table>
+          <div class="col__delta">
+            <span class="col__delta-label">leads &middot; below benchmark</span>
+            <span class="col__delta-value">1.3 %</span>
+          </div>
+        </div>
+      `;
+      const after = `
+        <div class="col col--right">
+          <div class="col__heading">after<span class="badge">fixed</span></div>
+          <table class="mcs-mini">
+            <thead><tr><th>metric</th><th>reality</th></tr></thead>
+            <tbody>
+              <tr><td class="metric">awareness</td><td class="reality">13,488</td></tr>
+              <tr><td class="metric">leads</td><td class="reality">512 (3.8 %)</td></tr>
+              <tr><td class="metric">qualified</td><td class="reality">487</td></tr>
+              <tr><td class="metric">paid</td><td class="reality">336</td></tr>
+              <tr><td class="metric">retained</td><td class="reality">114</td></tr>
+            </tbody>
+          </table>
+          <div class="col__delta">
+            <span class="col__delta-label">leads &middot; in benchmark</span>
+            <span class="col__delta-value">3.8 %</span>
+          </div>
+        </div>
+      `;
+      document.getElementById('body').innerHTML = before + '<div class="compare__divider"></div>' + after;
+    }
+
+    function variantChanges() {
+      document.getElementById('title').innerHTML  = 'what we <span class="accent">changed</span>';
+      document.getElementById('pill').textContent = 'case 1 · the fix';
+      document.getElementById('pager').textContent = '11 / 31';
+      document.getElementById('caption').innerHTML = `
+        <span class="line">no new traffic. no new product.</span>
+        <span class="line">we changed what happens when traffic lands.</span>
+      `;
+      document.getElementById('body').innerHTML = `
+        <div class="col col--left">
+          <div class="col__heading">before<span class="badge">leak</span></div>
+          <ul class="col__list">
+            <li><span class="marker">✕</span><span>generic landing copy</span></li>
+            <li><span class="marker">✕</span><span>"contact us" as primary cta</span></li>
+            <li><span class="marker">✕</span><span>no lead magnet on site</span></li>
+            <li><span class="marker">✕</span><span>messaging spoke to nobody</span></li>
+          </ul>
+        </div>
+        <div class="compare__divider"></div>
+        <div class="col col--right">
+          <div class="col__heading">after<span class="badge">fixed</span></div>
+          <ul class="col__list">
+            <li><span class="marker">✓</span><span>value prop in the headline</span></li>
+            <li><span class="marker">✓</span><span>"start free trial" everywhere</span></li>
+            <li><span class="marker">✓</span><span>pdf lead magnet on every page</span></li>
+            <li><span class="marker">✓</span><span>copy aimed at b2b dev leads</span></li>
+          </ul>
+        </div>
+      `;
+    }
+
+    function applyVariant(v) {
+      if (v === 'audience') variantAudience();
+      if (v === 'mcs')      variantMcs();
+      if (v === 'changes')  variantChanges();
+      replayAnimation();
+    }
+
+    function replayAnimation() {
+      const slide = document.getElementById('compareSlide');
+      const clone = slide.cloneNode(true);
+      slide.parentNode.replaceChild(clone, slide);
+      clone.id = 'compareSlide';
+    }
+
+    document.querySelectorAll('#switcher button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#switcher button').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        applyVariant(btn.dataset.v);
+      });
+    });
+
+    document.getElementById('replay').addEventListener('click', replayAnimation);
+
+    applyVariant('audience');
+  </script>
+
+</body>
+</html>
