@@ -38,7 +38,7 @@ html, body {
 
 .fs-toggle {
   position: fixed;
-  top: 14px;
+  bottom: 14px;
   right: 14px;
   width: 36px;
   height: 36px;
