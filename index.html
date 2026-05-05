@@ -37,11 +37,11 @@
       <div class="progress__sections">
         <button class="section" style="--at: 0%"     data-jump="1"  data-section="1" data-section-name="opening"            aria-label="Section 1 — opening"><span class="section__dot"></span></button>
         <button class="section" style="--at: 8.1%"   data-jump="5"  data-section="2" data-section-name="framework"          aria-label="Section 2 — framework"><span class="section__dot"></span></button>
-        <button class="section" style="--at: 18.9%"  data-jump="8"  data-section="3" data-section-name="case 1 · acquisition" aria-label="Section 3 — case 1"><span class="section__dot"></span></button>
-        <button class="section" style="--at: 40.5%"  data-jump="13" data-section="4" data-section-name="case 2 · conversion"  aria-label="Section 4 — case 2"><span class="section__dot"></span></button>
-        <button class="section" style="--at: 62.2%"  data-jump="18" data-section="5" data-section-name="case 3 · retention"   aria-label="Section 5 — case 3"><span class="section__dot"></span></button>
-        <button class="section" style="--at: 86.5%"  data-jump="23" data-section="6" data-section-name="takeaway"            aria-label="Section 6 — takeaway"><span class="section__dot"></span></button>
-        <button class="section" style="--at: 94.6%"  data-jump="25" data-section="7" data-section-name="cta"                 aria-label="Section 7 — cta"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 18.9%"  data-jump="10" data-section="3" data-section-name="case 1 · acquisition" aria-label="Section 3 — case 1"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 40.5%"  data-jump="18" data-section="4" data-section-name="case 2 · conversion"  aria-label="Section 4 — case 2"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 62.2%"  data-jump="25" data-section="5" data-section-name="case 3 · retention"   aria-label="Section 5 — case 3"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 86.5%"  data-jump="33" data-section="6" data-section-name="takeaway"            aria-label="Section 6 — takeaway"><span class="section__dot"></span></button>
+        <button class="section" style="--at: 97.3%"  data-jump="41" data-section="7" data-section-name="cta"                 aria-label="Section 7 — cta"><span class="section__dot"></span></button>
       </div>
     </div>
     <div class="progress__label">
@@ -51,6 +51,22 @@
       </div>
     </div>
   </header>
+
+  <!-- Toolbar: PDF download (P) + Fullscreen (F) -->
+  <button class="fs-toggle pdf-toggle" type="button" aria-label="Download as PDF" title="Download PDF (P)">
+    <svg class="fs-toggle__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <button class="fs-toggle" type="button" aria-label="Toggle fullscreen" title="Fullscreen (F)">
+    <svg class="fs-toggle__icon fs-toggle__icon--enter" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="fs-toggle__icon fs-toggle__icon--exit" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
 
   <div class="stage">
     <div class="deck">
@@ -172,7 +188,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">2 / 27</span>
+            <span class="brand-bar__pager">2 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -225,7 +241,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">3 / 27</span>
+            <span class="brand-bar__pager">3 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -288,7 +304,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">4 / 27</span>
+            <span class="brand-bar__pager">4 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -319,7 +335,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">5 / 27</span>
+            <span class="brand-bar__pager">5 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -333,7 +349,7 @@
 
       <!-- ──────────────────────────────────────────────────────
            SLIDE 6 · QR — MCS template
-           Section 2 · Framework · Minute 3.25
+           Section 2 · Framework · Minute 3.5
            ────────────────────────────────────────────────────── -->
       <section class="slide" data-slide="6" data-section="2" data-section-name="framework" data-minute="3.5" aria-label="QR — MCS template">
         <div class="qr-slide">
@@ -368,7 +384,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">6 / 27</span>
+            <span class="brand-bar__pager">6 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -382,7 +398,7 @@
 
       <!-- ──────────────────────────────────────────────────────
            SLIDE 7 · MCS framework — empty table with definitions
-           Section 2 · Framework · Minute 4.5
+           Section 2 · Framework · Minute 4
            ────────────────────────────────────────────────────── -->
       <section class="slide" data-slide="7" data-section="2" data-section-name="framework" data-minute="4" aria-label="MCS framework — metric definitions">
         <div class="mcs-slide">
@@ -430,7 +446,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">7 / 27</span>
+            <span class="brand-bar__pager">7 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -443,10 +459,50 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 8 · GAP INFOGRAPHIC — Reality vs. Plan
-           Section 2 · Framework · Minute 6.25
+           SLIDE 8 · VANITY METRICS — what this sheet doesn't measure
+           Section 2 · Framework · Minute 4.5
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="8" data-section="2" data-section-name="framework" data-minute="5.5" aria-label="Reality vs. plan — the gap is the leak">
+      <section class="slide" data-slide="8" data-section="2" data-section-name="framework" data-minute="4.5" aria-label="What this sheet doesn't measure — vanity metrics">
+        <div class="anchors-slide anchors-slide--wrong">
+
+          <div class="anchors-slide__intro">
+            <div class="section-label">section 2 · what it ignores</div>
+            <h1 class="anchors-slide__title">
+              what this sheet<br><span class="accent">doesn't</span> measure.
+            </h1>
+            <div class="anchors-slide__hint">vanity metrics — they make you feel productive.</div>
+          </div>
+
+          <ul class="anchors-slide__list">
+            <li><span class="marker"></span><span class="text"><span>page views</span></span></li>
+            <li><span class="marker"></span><span class="text"><span>time on site</span></span></li>
+            <li><span class="marker"></span><span class="text"><span>social media followers</span></span></li>
+            <li><span class="marker"></span><span class="text"><span>email open rates <em>(alone)</em></span></span></li>
+            <li><span class="marker"></span><span class="text"><span>number of impressions</span></span></li>
+          </ul>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">8 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 9 · GAP INFOGRAPHIC — Reality vs. Plan
+           Section 2 · Framework · Minute 5.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="9" data-section="2" data-section-name="framework" data-minute="5.5" aria-label="Reality vs. plan — the gap is the leak">
         <div class="gap-slide">
 
           <div class="section-label">section 2 · core insight</div>
@@ -480,7 +536,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">8 / 27</span>
+            <span class="brand-bar__pager">9 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -493,10 +549,67 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 9 · DIVIDER — case 1 · acquisition (top of funnel)
+           SLIDE 10 · CASES OVERVIEW — three real funnels preview
+           Section 3 · Three cases · Minute 6.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="10" data-section="3" data-section-name="three cases" data-minute="6.5" aria-label="Three cases preview">
+        <div class="cases-intro-slide">
+
+          <div class="cases-intro-slide__intro">
+            <div class="section-label">section 3 · what's coming</div>
+            <h1 class="cases-intro-slide__headline">
+              <span class="line line--1">three real funnels.</span>
+              <span class="line line--2">three different <span class="accent">leaks</span>.</span>
+            </h1>
+          </div>
+
+          <ol class="cases-intro-slide__cards">
+            <li class="cases-intro-slide__card">
+              <div class="cases-intro-slide__num">case 01</div>
+              <div class="cases-intro-slide__phase">acquisition</div>
+              <div class="cases-intro-slide__band">top of funnel</div>
+              <p class="cases-intro-slide__teaser">where <span class="accent">leads</span> dry up.</p>
+            </li>
+            <li class="cases-intro-slide__card">
+              <div class="cases-intro-slide__num">case 02</div>
+              <div class="cases-intro-slide__phase">conversion</div>
+              <div class="cases-intro-slide__band">middle of funnel</div>
+              <p class="cases-intro-slide__teaser">where <span class="accent">trials</span> don't pay.</p>
+            </li>
+            <li class="cases-intro-slide__card">
+              <div class="cases-intro-slide__num">case 03</div>
+              <div class="cases-intro-slide__phase">retention</div>
+              <div class="cases-intro-slide__band">bottom of funnel</div>
+              <p class="cases-intro-slide__teaser">where <span class="accent">customers</span> walk.</p>
+            </li>
+          </ol>
+
+          <p class="cases-intro-slide__footnote">
+            real clients<span class="sep">·</span>anonymized profiles<span class="sep">·</span>real numbers
+          </p>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">10 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 11 · DIVIDER — case 1 · acquisition (top of funnel)
            Section 3 · Case 1 · Minute 7
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="9" data-section="3" data-section-name="case 1 · acquisition" data-minute="7" aria-label="Section divider — case 1 acquisition">
+      <section class="slide" data-slide="11" data-section="3" data-section-name="case 1 · acquisition" data-minute="7" aria-label="Section divider — case 1 acquisition">
         <div class="divider-slide has-visual">
 
           <div class="divider-slide__content">
@@ -530,7 +643,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">9 / 27</span>
+            <span class="brand-bar__pager">11 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -543,10 +656,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 10 · PROFILE — case 1 client
+           SLIDE 12 · PROFILE — case 1 client
            Section 3 · Case 1 · Minute 7
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="10" data-section="3" data-section-name="case 1 · acquisition" data-minute="7" aria-label="Profile case 1">
+      <section class="slide" data-slide="12" data-section="3" data-section-name="case 1 · acquisition" data-minute="7" aria-label="Profile case 1">
         <div class="profile-slide">
 
           <div class="section-label">section 3 · case 01</div>
@@ -564,7 +677,7 @@
             <div class="profile-fact">
               <dt class="profile-fact__label">industry</dt>
               <dd class="profile-fact__value">
-                <span class="line">b2b saas — data protection software</span>
+                <span class="line">data protection software</span>
               </dd>
             </div>
             <div class="profile-fact">
@@ -586,10 +699,9 @@
               </dd>
             </div>
             <div class="profile-fact">
-              <dt class="profile-fact__label">before</dt>
+              <dt class="profile-fact__label">deal size</dt>
               <dd class="profile-fact__value">
-                <span class="line">no marketing function</span>
-                <span class="line">founder running product and sales</span>
+                <span class="line">large client, big deals</span>
               </dd>
             </div>
           </dl>
@@ -599,7 +711,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">10 / 27</span>
+            <span class="brand-bar__pager">12 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -612,10 +724,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 11 · MCS REALITY — case 1
+           SLIDE 13 · MCS REALITY — case 1
            Section 3 · Case 1 · Minute 8
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="11" data-section="3" data-section-name="case 1 · acquisition" data-minute="8" aria-label="MCS Reality case 1">
+      <section class="slide" data-slide="13" data-section="3" data-section-name="case 1 · acquisition" data-minute="8" aria-label="MCS Reality case 1">
         <div class="mcs-slide">
 
           <div class="mcs-slide__header">
@@ -676,7 +788,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">11 / 27</span>
+            <span class="brand-bar__pager">13 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -689,10 +801,130 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 12 · LIFT — 1 → 9 (case 1 outcome)
-           Section 3 · Case 1 · Minute 13.5
+           SLIDE 14 · WHAT WAS WRONG — case 1 (5 anchors)
+           Section 3 · Case 1 · Minute 9.5
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="12" data-section="3" data-section-name="case 1 · acquisition" data-minute="13.5" aria-label="Lift — case 1">
+      <section class="slide" data-slide="14" data-section="3" data-section-name="case 1 · acquisition" data-minute="9.5" aria-label="Case 1 — what was wrong">
+        <div class="anchors-slide anchors-slide--wrong">
+
+          <div class="anchors-slide__intro">
+            <div class="section-label">case 1 · diagnosis</div>
+            <h1 class="anchors-slide__title">
+              what was<br><span class="accent">wrong</span>.
+            </h1>
+            <div class="anchors-slide__hint">five reasons the top of funnel leaked.</div>
+          </div>
+
+          <ul class="anchors-slide__list">
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>visually <strong>blue</strong>. like everyone.</span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>generic hero — <em>"protect your data"</em></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>homepage talking <strong>to everyone</strong></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>cta only <em>"book a demo"</em></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>zero downloadable assets</span></span>
+            </li>
+          </ul>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">14 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 15 · WHAT WE FIXED — case 1 (6 anchors)
+           Section 3 · Case 1 · Minute 11
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="15" data-section="3" data-section-name="case 1 · acquisition" data-minute="11" aria-label="Case 1 — what we fixed">
+        <div class="anchors-slide anchors-slide--fixed">
+
+          <div class="anchors-slide__intro">
+            <div class="section-label">case 1 · the moves</div>
+            <h1 class="anchors-slide__title">
+              what we<br><span class="accent">fixed</span>.
+            </h1>
+            <div class="anchors-slide__hint">six moves. each one a story.</div>
+          </div>
+
+          <ul class="anchors-slide__list">
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>new hero — <strong>name the edge</strong></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text">
+                <span>brand: <strong>pick a lane</strong></span>
+                <em>visualization · signature color · mascot</em>
+              </span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>show the <strong>price</strong> 💸 <em>(counterintuitive)</em></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text">
+                <span>segmented landing pages</span>
+                <em>marketers · hr · healthcare</em>
+              </span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>social proof — case studies, references</span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>lead magnets — whitepaper + articles</span></span>
+            </li>
+          </ul>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">15 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 16 · LIFT — 1 → 9 (case 1 outcome)
+           Section 3 · Case 1 · Minute 13
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="16" data-section="3" data-section-name="case 1 · acquisition" data-minute="13" aria-label="Lift — case 1">
         <div class="lift-slide">
 
           <div class="section-label">case 1 · the lift</div>
@@ -723,7 +955,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">12 / 27</span>
+            <span class="brand-bar__pager">16 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -736,10 +968,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 13 · STATEMENT lesson — case 1
-           Section 3 · Case 1 · Minute 14.5
+           SLIDE 17 · STATEMENT lesson — case 1
+           Section 3 · Case 1 · Minute 14
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="13" data-section="3" data-section-name="case 1 · acquisition" data-minute="14.5" aria-label="Lesson — case 1">
+      <section class="slide" data-slide="17" data-section="3" data-section-name="case 1 · acquisition" data-minute="14" aria-label="Lesson — case 1">
         <div class="statement-slide">
           <div></div>
           <div class="statement-slide__body">
@@ -758,7 +990,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">13 / 27</span>
+            <span class="brand-bar__pager">17 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -770,10 +1002,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 14 · DIVIDER — case 2 · conversion (middle of funnel)
+           SLIDE 18 · DIVIDER — case 2 · conversion (middle of funnel)
            Section 4 · Case 2 · Minute 15
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="14" data-section="4" data-section-name="case 2 · conversion" data-minute="15" aria-label="Section divider — case 2 conversion">
+      <section class="slide" data-slide="18" data-section="4" data-section-name="case 2 · conversion" data-minute="15" aria-label="Section divider — case 2 conversion">
         <div class="divider-slide has-visual">
 
           <div class="divider-slide__content">
@@ -807,7 +1039,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">14 / 27</span>
+            <span class="brand-bar__pager">18 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -820,10 +1052,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 15 · PROFILE — case 2 client
+           SLIDE 19 · PROFILE — case 2 client
            Section 4 · Case 2 · Minute 15
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="15" data-section="4" data-section-name="case 2 · conversion" data-minute="15" aria-label="Profile case 2">
+      <section class="slide" data-slide="19" data-section="4" data-section-name="case 2 · conversion" data-minute="15" aria-label="Profile case 2">
         <div class="profile-slide">
 
           <div class="section-label">section 4 · case 02</div>
@@ -841,20 +1073,13 @@
             <div class="profile-fact">
               <dt class="profile-fact__label">industry</dt>
               <dd class="profile-fact__value">
-                <span class="line">b2b saas — visual feedback and bug reporting</span>
-              </dd>
-            </div>
-            <div class="profile-fact">
-              <dt class="profile-fact__label">use cases</dt>
-              <dd class="profile-fact__value">
-                <span class="line">dev teams collecting bug reports</span>
-                <span class="line">agencies tracking client feedback</span>
+                <span class="line">visual feedback and bug reporting</span>
               </dd>
             </div>
             <div class="profile-fact">
               <dt class="profile-fact__label">target</dt>
               <dd class="profile-fact__value">
-                <span class="line">small dev teams, agencies, freelancers</span>
+                <span class="line">dev teams, agencies, freelancers</span>
               </dd>
             </div>
             <div class="profile-fact">
@@ -864,10 +1089,15 @@
               </dd>
             </div>
             <div class="profile-fact">
+              <dt class="profile-fact__label">pricing</dt>
+              <dd class="profile-fact__value">
+                <span class="line">tens of dollars per month</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
               <dt class="profile-fact__label">before</dt>
               <dd class="profile-fact__value">
-                <span class="line">solo-founder operation</span>
-                <span class="line">no marketing function</span>
+                <span class="line">solo-founder operation, no marketing</span>
               </dd>
             </div>
           </dl>
@@ -877,7 +1107,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">15 / 27</span>
+            <span class="brand-bar__pager">19 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -890,10 +1120,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 16 · MCS REALITY — case 2
+           SLIDE 20 · MCS REALITY — case 2
            Section 4 · Case 2 · Minute 16
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="16" data-section="4" data-section-name="case 2 · conversion" data-minute="16" aria-label="MCS Reality case 2">
+      <section class="slide" data-slide="20" data-section="4" data-section-name="case 2 · conversion" data-minute="16" aria-label="MCS Reality case 2">
         <div class="mcs-slide">
 
           <div class="mcs-slide__header">
@@ -954,7 +1184,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">16 / 27</span>
+            <span class="brand-bar__pager">20 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -967,57 +1197,49 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 17 · LIFT — what we're fixing now (case 2)
-           Section 4 · Case 2 · Minute 22
+           SLIDE 21 · WHAT WAS WRONG — case 2 (5 anchors)
+           Section 4 · Case 2 · Minute 17
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="17" data-section="4" data-section-name="case 2 · conversion" data-minute="22" aria-label="Lift — case 2 in progress">
-        <div class="takeaways-slide">
+      <section class="slide" data-slide="21" data-section="4" data-section-name="case 2 · conversion" data-minute="17" aria-label="Case 2 — what was wrong">
+        <div class="anchors-slide anchors-slide--wrong">
 
-          <div class="takeaways-slide__intro">
-            <div class="section-label">case 2 · in progress</div>
-            <h1 class="takeaways-slide__headline">
-              <span class="line line--1">we're</span>
-              <span class="line line--2"><span class="accent">fixing</span></span>
-              <span class="line line--3">it now.</span>
+          <div class="anchors-slide__intro">
+            <div class="section-label">case 2 · diagnosis</div>
+            <h1 class="anchors-slide__title">
+              what was<br><span class="accent">wrong</span>.
             </h1>
+            <div class="anchors-slide__hint">trial-to-paid was bleeding money.</div>
           </div>
 
-          <ol class="takeaways-slide__list">
+          <ul class="anchors-slide__list">
             <li>
-              <span class="num">01</span>
-              <div class="body">
-                <span class="title">messaging</span>
-                <span class="desc">
-                  <span class="line">sharper, audience-specific.</span>
-                </span>
-              </div>
+              <span class="marker"></span>
+              <span class="text"><span>welcome email — <strong>wrong tone</strong>, no value taught</span></span>
             </li>
             <li>
-              <span class="num">02</span>
-              <div class="body">
-                <span class="title">onboarding</span>
-                <span class="desc">
-                  <span class="line">revised, with an activation metric.</span>
-                </span>
-              </div>
+              <span class="marker"></span>
+              <span class="text"><span>in-app: setup once, then <strong>silence</strong></span></span>
             </li>
             <li>
-              <span class="num">03</span>
-              <div class="body">
-                <span class="title">segmentation</span>
-                <span class="desc">
-                  <span class="line">deeper a/b testing in flight.</span>
-                </span>
-              </div>
+              <span class="marker"></span>
+              <span class="text"><span>no nudges on the second visit</span></span>
             </li>
-          </ol>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>paid value <strong>never explained</strong></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>no comparison vs. competitors</span></span>
+            </li>
+          </ul>
 
           <div class="brand-bar">
             <div class="brand-bar__inner">
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">17 / 27</span>
+            <span class="brand-bar__pager">21 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1030,17 +1252,121 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 18 · STATEMENT lesson — signups don't pay (case 2)
-           Section 4 · Case 2 · Minute 22.5
+           SLIDE 22 · WHAT WE FIXED — case 2 (6 anchors)
+           Section 4 · Case 2 · Minute 19
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="18" data-section="4" data-section-name="case 2 · conversion" data-minute="22.5" aria-label="Lesson — case 2">
+      <section class="slide" data-slide="22" data-section="4" data-section-name="case 2 · conversion" data-minute="19" aria-label="Case 2 — what we fixed">
+        <div class="anchors-slide anchors-slide--fixed">
+
+          <div class="anchors-slide__intro">
+            <div class="section-label">case 2 · the moves</div>
+            <h1 class="anchors-slide__title">
+              what we<br><span class="accent">fixed</span>.
+            </h1>
+            <div class="anchors-slide__hint">teach the value. across every touchpoint.</div>
+          </div>
+
+          <ul class="anchors-slide__list">
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>solutions page — <strong>rewritten for value</strong></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>resources page — supporting materials</span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text">
+                <span>comparison pages — <strong>honest</strong></span>
+                <em>where we win, where we don't, why we cost less</em>
+              </span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text">
+                <span>7-email onboarding series</span>
+                <em>one feature per day</em>
+              </span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text">
+                <span>bi-weekly product reminders</span>
+                <em>releases, new features</em>
+              </span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text">
+                <span>in-app onboarding</span>
+                <em>push advanced features in trial</em>
+              </span>
+            </li>
+          </ul>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">22 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 23 · THE TRICK — standalone strategic insight (case 2)
+           Section 4 · Case 2 · Minute 21
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="23" data-section="4" data-section-name="case 2 · conversion" data-minute="21" aria-label="Case 2 — the trick">
+        <div class="statement-slide statement-slide--tight">
+          <div></div>
+          <div class="statement-slide__body">
+            <h1 class="statement-slide__headline">
+              <span class="line line--1">the <span class="accent">trick</span>:</span>
+              <span class="line line--2 line--quiet">teach trial users to love</span>
+              <span class="line line--3 line--quiet">the features they would lose by downgrading.</span>
+            </h1>
+            <p class="statement-slide__subline">
+              conversion mechanic in one sentence.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">23 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 24 · COMBINED — phase one done + signups don't pay (case 2)
+           Section 4 · Case 2 · Minute 22
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="24" data-section="4" data-section-name="case 2 · conversion" data-minute="22" aria-label="Case 2 — signups don't pay">
         <div class="statement-slide">
           <div></div>
           <div class="statement-slide__body">
             <h1 class="statement-slide__headline">
               <span class="line line--1">signups don't pay.</span>
               <span class="line line--2"><span class="accent">people</span> do.</span>
-              <span class="line line--3">build the bridge.</span>
             </h1>
             <p class="statement-slide__subline">
               what happens after signup matters more than the signup itself.
@@ -1052,7 +1378,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">18 / 27</span>
+            <span class="brand-bar__pager">24 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1064,10 +1390,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 19 · DIVIDER — case 3 · retention (bottom of funnel)
+           SLIDE 25 · DIVIDER — case 3 · retention (bottom of funnel)
            Section 5 · Case 3 · Minute 23
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="19" data-section="5" data-section-name="case 3 · retention" data-minute="23" aria-label="Section divider — case 3 retention">
+      <section class="slide" data-slide="25" data-section="5" data-section-name="case 3 · retention" data-minute="23" aria-label="Section divider — case 3 retention">
         <div class="divider-slide has-visual">
 
           <div class="divider-slide__content">
@@ -1101,7 +1427,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">19 / 27</span>
+            <span class="brand-bar__pager">25 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1114,10 +1440,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 20 · PROFILE — case 3 client (Contesaur anonymous)
+           SLIDE 26 · PROFILE — case 3 client (anonymous)
            Section 5 · Case 3 · Minute 23
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="20" data-section="5" data-section-name="case 3 · retention" data-minute="23" aria-label="Profile case 3">
+      <section class="slide" data-slide="26" data-section="5" data-section-name="case 3 · retention" data-minute="23" aria-label="Profile case 3">
         <div class="profile-slide">
 
           <div class="section-label">section 5 · case 03</div>
@@ -1135,26 +1461,31 @@
             <div class="profile-fact">
               <dt class="profile-fact__label">industry</dt>
               <dd class="profile-fact__value">
-                <span class="line">b2b saas — content marketing tool, early stage</span>
+                <span class="line">content marketing</span>
               </dd>
             </div>
             <div class="profile-fact">
               <dt class="profile-fact__label">use cases</dt>
               <dd class="profile-fact__value">
-                <span class="line">content strategy, planning, approval workflow</span>
+                <span class="line">content strategy, planning</span>
               </dd>
             </div>
             <div class="profile-fact">
-              <dt class="profile-fact__label">team</dt>
+              <dt class="profile-fact__label">stage</dt>
               <dd class="profile-fact__value">
-                <span class="line">small, no marketing function</span>
+                <span class="line">early stage — small team</span>
+              </dd>
+            </div>
+            <div class="profile-fact">
+              <dt class="profile-fact__label">customers</dt>
+              <dd class="profile-fact__value">
+                <span class="line">roughly 10–20 paying customers</span>
               </dd>
             </div>
             <div class="profile-fact">
               <dt class="profile-fact__label">before</dt>
               <dd class="profile-fact__value">
-                <span class="line">no marketing activity</span>
-                <span class="line">something quietly going wrong</span>
+                <span class="line">no marketing function</span>
               </dd>
             </div>
           </dl>
@@ -1164,7 +1495,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">20 / 27</span>
+            <span class="brand-bar__pager">26 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1177,10 +1508,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 21 · MCS REALITY — case 3
-           Section 5 · Case 3 · Minute 24.5
+           SLIDE 27 · MCS REALITY — case 3
+           Section 5 · Case 3 · Minute 24
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="21" data-section="5" data-section-name="case 3 · retention" data-minute="24.5" aria-label="MCS Reality case 3">
+      <section class="slide" data-slide="27" data-section="5" data-section-name="case 3 · retention" data-minute="24" aria-label="MCS Reality case 3">
         <div class="mcs-slide">
 
           <div class="mcs-slide__header">
@@ -1241,7 +1572,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">21 / 27</span>
+            <span class="brand-bar__pager">27 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1254,16 +1585,16 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 22 · BLEED — retention drop graph (case 3)
-           Section 5 · Case 3 · Minute 31
+           SLIDE 28 · BLEED — retention drop graph (case 3)
+           Section 5 · Case 3 · Minute 25
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="22" data-section="5" data-section-name="case 3 · retention" data-minute="31" aria-label="Bleed — case 3 retention drop">
+      <section class="slide" data-slide="28" data-section="5" data-section-name="case 3 · retention" data-minute="25" aria-label="Retention drop — case 3">
         <div class="gap-slide gap-slide--retention">
 
-          <div class="section-label">case 3 · the bleed</div>
+          <div class="section-label">case 3 · retention drop</div>
 
           <h1 class="gap-slide__headline">
-            the bottom is <span class="accent">bleeding</span>.
+            retention is <span class="accent">collapsing</span>.
           </h1>
 
           <div class="gap-viz">
@@ -1277,7 +1608,7 @@
               <span class="gap-col__label">year 2</span>
               <span class="gap-col__sub">retention only</span>
               <div class="gap-col__bar"></div>
-              <span class="gap-col__value">52 %</span>
+              <span class="gap-col__value">53 %</span>
             </div>
 
             <div class="gap-arrow" aria-hidden="true">
@@ -1291,7 +1622,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">22 / 27</span>
+            <span class="brand-bar__pager">28 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1304,17 +1635,173 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 23 · STATEMENT lesson — fix the bottom first (case 3)
-           Section 5 · Case 3 · Minute 31.5
+           SLIDE 29 · WHAT WAS WRONG — case 3 (5 anchors)
+           Section 5 · Case 3 · Minute 26
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="23" data-section="5" data-section-name="case 3 · retention" data-minute="31.5" aria-label="Lesson — case 3">
+      <section class="slide" data-slide="29" data-section="5" data-section-name="case 3 · retention" data-minute="26" aria-label="Case 3 — what was wrong">
+        <div class="anchors-slide anchors-slide--wrong">
+
+          <div class="anchors-slide__intro">
+            <div class="section-label">case 3 · diagnosis</div>
+            <h1 class="anchors-slide__title">
+              what was<br><span class="accent">wrong</span>.
+            </h1>
+            <div class="anchors-slide__hint">retention bleeds where pmf is thin.</div>
+          </div>
+
+          <ul class="anchors-slide__list">
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>icp too broad — <em>"for everyone" = for nobody</em></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>stripe migration → <strong>weak product-market fit</strong></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>trial only 7 days — not enough time to value</span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>no community, no shared space</span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>no safety net — users left in <strong>silence</strong></span></span>
+            </li>
+          </ul>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">29 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 30 · WHAT WE'RE ROLLING OUT — case 3 (6 anchors)
+           Section 5 · Case 3 · Minute 28
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="30" data-section="5" data-section-name="case 3 · retention" data-minute="28" aria-label="Case 3 — what we're rolling out">
+        <div class="anchors-slide anchors-slide--fixed">
+
+          <div class="anchors-slide__intro">
+            <div class="section-label">case 3 · the moves</div>
+            <h1 class="anchors-slide__title">
+              what we're<br><span class="accent">rolling out</span>.
+            </h1>
+            <div class="anchors-slide__hint">in flight. honest about that.</div>
+          </div>
+
+          <ul class="anchors-slide__list">
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>icp narrowing — <strong>one specific segment</strong></span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>trial 7 → 14 days</span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>faster time to value</span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>community channel — discord, slack, app, events</span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text">
+                <span>product validation reset</span>
+                <em>user interviews, power users shape the roadmap</em>
+              </span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text"><span>monthly q&amp;a calls</span></span>
+            </li>
+            <li>
+              <span class="marker"></span>
+              <span class="text">
+                <span>churn safety net</span>
+                <em>discounts, exit interviews, win-back follow-up</em>
+              </span>
+            </li>
+          </ul>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">30 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 31 · RETENTION DOESN'T LEAK FROM TACTICS — strategic moment
+           Section 5 · Case 3 · Minute 30
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="31" data-section="5" data-section-name="case 3 · retention" data-minute="30" aria-label="Case 3 — retention is a pmf problem">
         <div class="statement-slide">
           <div></div>
           <div class="statement-slide__body">
             <h1 class="statement-slide__headline">
-              <span class="line line--1">fix the bottom</span>
-              <span class="line line--2"><span class="accent">first</span>.</span>
-              <span class="line line--3">everything above compounds.</span>
+              <span class="line line--1">retention doesn't leak from <span class="accent">tactics</span>.</span>
+            </h1>
+            <p class="statement-slide__subline">
+              it leaks from product-market fit.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">31 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 32 · COMBINED — this one is live + retention compounds
+           Section 5 · Case 3 · Minute 31.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="32" data-section="5" data-section-name="case 3 · retention" data-minute="31.5" aria-label="Case 3 — every customer you lose">
+        <div class="statement-slide statement-slide--tight">
+          <div></div>
+          <div class="statement-slide__body">
+            <h1 class="statement-slide__headline">
+              <span class="line line--1">every customer you lose</span>
+              <span class="line line--2">is one you have to</span>
+              <span class="line line--3"><span class="accent">acquire again</span>.</span>
             </h1>
             <p class="statement-slide__subline">
               retention is the cheapest growth lever you have.
@@ -1326,7 +1813,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">23 / 27</span>
+            <span class="brand-bar__pager">32 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1338,45 +1825,97 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 24 · MONDAY MORNING CHECKLIST
+           SLIDE 33 · LESSONS RECAP — three takeaways from three cases
+           Section 6 · Takeaway · Minute 31.75
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="33" data-section="6" data-section-name="takeaway" data-minute="31.75" aria-label="Three lessons from three cases">
+        <div class="cases-intro-slide cases-intro-slide--recap">
+
+          <div class="cases-intro-slide__intro">
+            <div class="section-label">section 6 · what we learned</div>
+            <h1 class="cases-intro-slide__headline">
+              <span class="line line--1">three cases.</span>
+              <span class="line line--2">three <span class="accent">lessons</span>.</span>
+            </h1>
+          </div>
+
+          <ol class="cases-intro-slide__cards">
+            <li class="cases-intro-slide__card">
+              <div class="cases-intro-slide__num">lesson 01</div>
+              <div class="cases-intro-slide__phase">acquisition</div>
+              <p class="cases-intro-slide__teaser">more leads need a <span class="accent">better hook</span>, not more traffic.</p>
+            </li>
+            <li class="cases-intro-slide__card">
+              <div class="cases-intro-slide__num">lesson 02</div>
+              <div class="cases-intro-slide__phase">conversion</div>
+              <p class="cases-intro-slide__teaser">what happens <span class="accent">after signup</span> matters more than the signup.</p>
+            </li>
+            <li class="cases-intro-slide__card">
+              <div class="cases-intro-slide__num">lesson 03</div>
+              <div class="cases-intro-slide__phase">retention</div>
+              <p class="cases-intro-slide__teaser">fix the <span class="accent">bottom first</span>. everything above compounds.</p>
+            </li>
+          </ol>
+
+          <p class="cases-intro-slide__footnote">before we get to monday morning</p>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">33 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 34 · DIAGNOSTIC OVERVIEW — 5 questions for your team
            Section 6 · Takeaway · Minute 32
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="24" data-section="6" data-section-name="takeaway" data-minute="32" aria-label="Monday morning checklist">
+      <section class="slide" data-slide="34" data-section="6" data-section-name="takeaway" data-minute="32" aria-label="Diagnostic — 5 questions overview">
         <div class="checklist-slide">
 
           <div class="checklist-slide__intro">
-            <div class="section-label">section 6 · takeaway</div>
+            <div class="section-label">section 6 · the diagnostic</div>
             <h1 class="checklist-slide__headline">
-              <span class="line line--1">the monday</span>
-              <span class="line line--2">morning</span>
-              <span class="line line--3"><span class="accent">checklist</span>.</span>
+              <span class="line line--1">five questions</span>
+              <span class="line line--2">for your next</span>
+              <span class="line line--3">team <span class="accent">meeting</span>.</span>
             </h1>
             <div class="checklist-slide__sub">
-              <span class="line">five questions</span>
-              <span class="line">to ask your team.</span>
+              <span class="line">walk through each one.</span>
+              <span class="line">one slide at a time.</span>
             </div>
           </div>
 
           <ol class="checklist-slide__list">
             <li>
               <span class="num">01</span>
-              <span class="question">do you know your <span class="accent">reality</span> numbers?</span>
+              <span class="question"><span class="accent">reality</span> numbers — past month?</span>
             </li>
             <li>
               <span class="num">02</span>
-              <span class="question">do you know your <span class="accent">plan</span> numbers?</span>
+              <span class="question"><span class="accent">plan</span> numbers?</span>
             </li>
             <li>
               <span class="num">03</span>
-              <span class="question">where is the <span class="accent">biggest gap</span>?</span>
+              <span class="question">biggest <span class="accent">gap</span>?</span>
             </li>
             <li>
               <span class="num">04</span>
-              <span class="question">what's your <span class="accent">hypothesis</span> for it?</span>
+              <span class="question"><span class="accent">hypothesis</span> for the gap?</span>
             </li>
             <li>
               <span class="num">05</span>
-              <span class="question">what's the <span class="accent">first fix</span> you'll test?</span>
+              <span class="question">first <span class="accent">fix</span> to test?</span>
             </li>
           </ol>
 
@@ -1385,7 +1924,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">24 / 27</span>
+            <span class="brand-bar__pager">34 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1398,10 +1937,249 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 25 · STATEMENT — core message
+           SLIDE 35 · 01 / REALITY NUMBERS — diagnostic deep dive
+           Section 6 · Takeaway · Minute 32.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="35" data-section="6" data-section-name="takeaway" data-minute="32.5" aria-label="01 reality numbers">
+        <div class="diagnostic-slide">
+
+          <div class="diagnostic-slide__num-block">
+            <div class="diagnostic-slide__num">01</div>
+            <div class="diagnostic-slide__topic">reality numbers</div>
+          </div>
+
+          <div class="diagnostic-slide__body">
+            <h1 class="diagnostic-slide__question">
+              do you know your <span class="accent">reality</span> numbers<br>for the past month?
+            </h1>
+            <div class="diagnostic-slide__detail">pull from:</div>
+            <ul class="diagnostic-slide__list">
+              <li><span><strong>ga4</strong> → users</span></li>
+              <li><span><strong>crm</strong> → new leads (last 30 days)</span></li>
+              <li><span><strong>stripe</strong> → closed won</span></li>
+              <li><span><strong>customer success</strong> → churn</span></li>
+            </ul>
+            <p class="diagnostic-slide__punch">
+              if you don't know — find out. get at least an mvp mcs.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">35 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 36 · 02 / PLAN NUMBERS — diagnostic deep dive
+           Section 6 · Takeaway · Minute 33
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="36" data-section="6" data-section-name="takeaway" data-minute="33" aria-label="02 plan numbers">
+        <div class="diagnostic-slide">
+
+          <div class="diagnostic-slide__num-block">
+            <div class="diagnostic-slide__num">02</div>
+            <div class="diagnostic-slide__topic">plan numbers</div>
+          </div>
+
+          <div class="diagnostic-slide__body">
+            <h1 class="diagnostic-slide__question">
+              do you know your <span class="accent">plan</span> numbers?
+            </h1>
+            <div class="diagnostic-slide__detail">
+              not what you hope. what you'd need to hit your revenue goal.
+            </div>
+
+            <div class="flow">
+              <div class="flow__label">backward planning — start at the goal</div>
+              <div class="flow__chain">
+                <div class="flow__step flow__step--goal">
+                  <span class="flow__qty">the goal</span>
+                  <span class="flow__name">sales target</span>
+                </div>
+                <span class="flow__arrow" aria-hidden="true">←</span>
+                <div class="flow__step">
+                  <span class="flow__qty">required</span>
+                  <span class="flow__name">qualified</span>
+                </div>
+                <span class="flow__arrow" aria-hidden="true">←</span>
+                <div class="flow__step">
+                  <span class="flow__qty">required</span>
+                  <span class="flow__name">leads</span>
+                </div>
+                <span class="flow__arrow" aria-hidden="true">←</span>
+                <div class="flow__step">
+                  <span class="flow__qty">required</span>
+                  <span class="flow__name">visitors</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="diagnostic-slide__punch">
+              there's a tab for this in the template.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">36 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 37 · 03 / BIGGEST GAP — diagnostic deep dive
            Section 6 · Takeaway · Minute 33.5
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="25" data-section="6" data-section-name="takeaway" data-minute="33.5" aria-label="Core message — funnels need a fixer">
+      <section class="slide" data-slide="37" data-section="6" data-section-name="takeaway" data-minute="33.5" aria-label="03 biggest gap">
+        <div class="diagnostic-slide">
+
+          <div class="diagnostic-slide__num-block">
+            <div class="diagnostic-slide__num">03</div>
+            <div class="diagnostic-slide__topic">biggest gap</div>
+          </div>
+
+          <div class="diagnostic-slide__body">
+            <h1 class="diagnostic-slide__question">
+              where is the biggest <span class="accent">gap</span><br>between reality and plan?
+            </h1>
+            <div class="diagnostic-slide__detail">
+              that's your leak.
+            </div>
+            <p class="diagnostic-slide__punch">
+              not the obvious one. the biggest one.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">37 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 38 · 04 / HYPOTHESIS — diagnostic deep dive
+           Section 6 · Takeaway · Minute 34
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="38" data-section="6" data-section-name="takeaway" data-minute="34" aria-label="04 hypothesis">
+        <div class="diagnostic-slide">
+
+          <div class="diagnostic-slide__num-block">
+            <div class="diagnostic-slide__num">04</div>
+            <div class="diagnostic-slide__topic">hypothesis</div>
+          </div>
+
+          <div class="diagnostic-slide__body">
+            <h1 class="diagnostic-slide__question">
+              what's your <span class="accent">hypothesis</span> for that gap?
+            </h1>
+            <div class="diagnostic-slide__detail">
+              not the symptom — the cause.
+            </div>
+            <ul class="diagnostic-slide__list">
+              <li><span><strong>awareness gap</strong> → positioning, channels, seo</span></li>
+              <li><span><strong>lead gap</strong> → hero, cta, lead magnet</span></li>
+              <li><span><strong>qualified gap</strong> → segmentation, value prop</span></li>
+              <li><span><strong>paid gap</strong> → trial, onboarding, pricing</span></li>
+              <li><span><strong>retained gap</strong> → product fit, success, communication</span></li>
+            </ul>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">38 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 39 · 05 / FIRST FIX — diagnostic deep dive
+           Section 6 · Takeaway · Minute 34.5
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="39" data-section="6" data-section-name="takeaway" data-minute="34.5" aria-label="05 first fix">
+        <div class="diagnostic-slide">
+
+          <div class="diagnostic-slide__num-block">
+            <div class="diagnostic-slide__num">05</div>
+            <div class="diagnostic-slide__topic">first fix</div>
+          </div>
+
+          <div class="diagnostic-slide__body">
+            <h1 class="diagnostic-slide__question">
+              what's the <span class="accent">first fix</span><br>you'll test this week?
+            </h1>
+            <div class="diagnostic-slide__detail">
+              one thing.
+            </div>
+            <p class="diagnostic-slide__punch">
+              not three. not five. one.
+            </p>
+          </div>
+
+          <div class="brand-bar">
+            <div class="brand-bar__inner">
+              <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
+              <span class="brand-bar__handle">vladana bačová</span>
+            </div>
+            <span class="brand-bar__pager">39 / 42</span>
+          </div>
+
+          <div class="half-dots" aria-hidden="true">
+            <span class="dot dot--1"></span>
+            <span class="dot dot--2"></span>
+            <span class="dot dot--3"></span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────────────────────────────
+           SLIDE 40 · STATEMENT — core message
+           Section 6 · Takeaway · Minute 35
+           ────────────────────────────────────────────────────── -->
+      <section class="slide" data-slide="40" data-section="6" data-section-name="takeaway" data-minute="35" aria-label="Core message — funnels need a fixer">
         <div class="statement-slide">
           <div></div>
           <div class="statement-slide__body">
@@ -1420,7 +2198,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">25 / 27</span>
+            <span class="brand-bar__pager">40 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1432,10 +2210,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 26 · QR — Hot CTA LinkedIn
-           Section 7 · CTA · Minute 35
+           SLIDE 41 · QR — Hot CTA LinkedIn
+           Section 7 · CTA · Minute 36
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="26" data-section="7" data-section-name="cta" data-minute="35" aria-label="Hot CTA — LinkedIn 30-min teardown">
+      <section class="slide" data-slide="41" data-section="7" data-section-name="cta" data-minute="36" aria-label="Hot CTA — LinkedIn 30-min teardown">
         <div class="qr-slide">
 
           <div class="qr-slide__content">
@@ -1467,7 +2245,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">26 / 27</span>
+            <span class="brand-bar__pager">41 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">
@@ -1480,10 +2258,10 @@
       </section>
 
       <!-- ──────────────────────────────────────────────────────
-           SLIDE 27 · CLOSE + WEB — thank you + template download
+           SLIDE 42 · CLOSE + WEB — thank you + template download + footnote
            Section 7 · CTA · Minute 37
            ────────────────────────────────────────────────────── -->
-      <section class="slide" data-slide="27" data-section="7" data-section-name="cta" data-minute="37" aria-label="Close — thank you and template download">
+      <section class="slide" data-slide="42" data-section="7" data-section-name="cta" data-minute="37" aria-label="Close — thank you and template download">
         <div class="qr-slide">
 
           <div class="qr-slide__content">
@@ -1512,7 +2290,7 @@
               <img class="brand-bar__logo" src="assets/png/PMN_v2.png" alt="Pretty Much Nomads">
               <span class="brand-bar__handle">vladana bačová</span>
             </div>
-            <span class="brand-bar__pager">27 / 27</span>
+            <span class="brand-bar__pager">42 / 42</span>
           </div>
 
           <div class="half-dots" aria-hidden="true">

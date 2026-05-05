@@ -1,6 +1,6 @@
 // WebExpo deck — navigation + minute-based progress
 (() => {
-  const TOTAL_SLIDES = 27;
+  const TOTAL_SLIDES = 42;
   const TOTAL_MINUTES = 40;
   const TALK_END_MINUTE = 37;
 
@@ -114,6 +114,16 @@
     labelMeta.textContent = `slide ${slideNum} of ${TOTAL_SLIDES} · minute ${minuteDisplay} of ${TOTAL_MINUTES}`;
   }
 
+  function toggleFullscreen() {
+    const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+    if (fsEl) {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    } else {
+      const root = document.documentElement;
+      (root.requestFullscreen || root.webkitRequestFullscreen).call(root);
+    }
+  }
+
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     switch (e.key) {
@@ -138,10 +148,44 @@
         break;
       case 'f':
       case 'F':
-        if (document.fullscreenElement) document.exitFullscreen();
-        else document.documentElement.requestFullscreen();
+        toggleFullscreen();
+        break;
+      case 'p':
+      case 'P':
+        e.preventDefault();
+        window.print();
         break;
     }
+  });
+
+  // Fullscreen toggle button (excludes pdf-toggle by extra class match)
+  document.querySelectorAll('.fs-toggle:not(.pdf-toggle)').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFullscreen();
+      btn.blur();
+    });
+  });
+
+  // PDF download button
+  const pdfBtn = document.querySelector('.pdf-toggle');
+  if (pdfBtn) {
+    pdfBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      pdfBtn.blur();
+      window.print();
+    });
+  }
+
+  // Force every slide into is-active before print so child entrance animations
+  // resolve to final state (animations are zero-duration in @media print).
+  window.addEventListener('beforeprint', () => {
+    slides.forEach(s => s.classList.add('is-active'));
+  });
+  window.addEventListener('afterprint', () => {
+    slides.forEach((s, i) => {
+      if (i !== current) s.classList.remove('is-active');
+    });
   });
 
   // Click on slide stage — left half = prev, right half = next
